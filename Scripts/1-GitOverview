@@ -1,0 +1,117 @@
+Git Overview
+10 minutes - live
+-What is version control and who needs it?
+-How does Git do version control? How does other software?
+-What's the relationship between Git and GitHub?
+-Git, Github, and your personal morality
+
+1. What is version control and who needs it?
+
+Git solves a problem called "version control" whereby multiple people, often in separate locations, are working on the same file or set of files.
+You might be familiar with version control through things like Google Docs, where you can see who edited a file, see the changes they made, and restore different versions.
+That's the same basic functionality that Git provides although it's tailored to software development in a distributed-team environment.
+
+It's far from the first version control software, or ethos, either.
+There's a versioning tool that IBM developed in 1962 that's probably the first one.
+The major precursor to Git was something called Subversion, which I think we can all agree is a much better name.
+
+Software isn't like office documents, though. It's maybe a bit like a PDF?
+With a PDF, you make your changes in Word or Google Docs and you export a PDF. If you messed up, you gotta re-export.
+Writing software works roughly the same way: you make changes in a text editor and render a result.
+The code isn't the end product, the code creates the end products (a website, a transcoded video file, etc.).
+
+This is a critical difference between source code and office documents!
+Office documents have a writing style to them that's largely subjectvie but also ONE OF THE MOST IMPORTANT THINGS ABOUT A DOCUMENT
+Think of all the times you've revised something to get the right "tone."
+Think of all the times you've wanted to parrot something a supervisor said in order to make a case for something you're working on.
+
+Source code does not work like this.
+Source code can have a tone but it's largely unrelated to the output of the program and the output of the progrma is what matters.
+That's not to say there's not style differences between coders or between coding languages.
+You've probably seen some overwrought expression on TV to the effect of "they write beautiful code" - I'm not sure I've seen beautiful code (although I've seen clever code)
+Pro developers will often have a favorite language because they find it "expressive" - I just have languages that give me headaches.
+
+Nonetheless, there are often style guides for a particular coding language that can be used to govern variable and function names or force a certain interoperability/ readability between coders.
+These "styles," however, can be tested! Unlike the "tone" of an office document.
+People can and do run their code through "linters" which can conform their code to a set standard.
+People can test different methods of solving the same problem to find the fastest one, or the one that eats the least memory, or is the most fault-tolerant.
+
+Imagine being able to test the "tone" of your email before an important person sees it.
+Now imagine that you could force that tone on all you emails.
+That's how the "style" of code differs from the style of office documents.
+
+This is really improtant because that tone is often the bedrock for whatever you're really trying to communicate.
+And, unlike with software, you can't really test it in an automated way, you can't conform the tone to a style guide automatically.
+
+So, if two people disagree about the tone of a document, they workshop it back and forth until it's right.
+In software, I mean there's still a human element that we'll get to, but if someone thinks a program can be constructed better, everyone involved can test it and agree on the best method (or agree there's not a best method!)
+
+Git provides methods for handling all of those issues.
+
+
+
+2. How does Git do version control?
+
+Git tracks the changes to a file.
+You tell Git to track a file and it records all the changes to it.
+It does not save different updates to files as their own documents.
+It applies changes relative to other file versions.
+Files are never final.
+
+You may have looked at a commit in your life and wondered, "there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
+Those are the changes.
+
+Here's a little workflow:
+Jenny notices that the alignment of the images on her hand-made portfolio website is all out of whack.
+She opens the relevant html file in her favorite text editor, makes soem changes.
+She saves the changes locally and uploads them via FTP to her webserver.
+Her website now looks better.
+
+That "Saves the changes and uploads" is the thing that Git manages.
+
+Here's a little glossary:
+Repository - repo for shorthand (the life of a repo man is always intense). Repos are both the file and folder structure of the code and also the changes, the users, the forums, etc.
+-There are two kinds of repositories, local and remote. Local is code on your computer that you're using right now. Remote is the code on GitHub (or similar). You don't need a remote to run Git.
+
+Commit - commits are how you add changes to a file. You can restore old commits. You can apply one commit at a time or lots of them at once. You can comment on commits.
+
+Back to Jenny, if her friend Alex notices that the alignment could be done better, and if Jenny is using GitHub, Alex can submit a new version of her html file with the "better" code.
+All the filenames stay the same.
+There's no "_better_real2-FINAL.hmtl" in someone's email.
+And, before Alex's code replaces Jenny's Jenny gets a chance to review it and make comments and suggestions.
+
+That's called a Pull Request. "Pull" is another important Git term and it means to retrieve code from somewhere else (the remote repo or another repo entirely) and integrate it into the existing code.
+
+So, you can see there's a really important relationship developing between a remote repository and a local repository.
+They are linked but they are not the same.
+The remote repo is where the best, most up to date, most usable and refined code is.
+Everyone agrees that's where the canonical version of the code is.
+Everyone agrees what the canonical verison of the code is.
+There's a code of conduct in the remote repo that everyone abides by.
+There's a license in the remote repo that people can refer back to when deploying your code for themselves.
+Remote is where others go to use or modify code that you wrote.
+Remote protects against corruption to your local server.
+Local is where you work, though, so that's pretty important too.
+
+These are the basics of how Git handles version control.
+
+
+3. What's the relationship between Git and GitHub?
+
+GitHub is a website and software service that provides hosting for remote Git repositories.
+You don't need to use GitHub to run Git, or to have a remote repo. You can build one yourself or use an alternative hosting site like GitBucket or Amazon's CodeCommit.
+The reasons people use GitHub are because it's free, everyone who codes has some notion of how it works, and it's really, really to share code with GitHub.
+
+Git is maintained on GitHub but the two are otherwise unaffiliated. The Linux kernal is the biggest project on GitHub (almost 1million commits!)
+You might be thinking, that's a lot of server space - how does GitHub afford to provide free hosting?
+The filesize limit on GitHub is 100MB. Code is small.
+Additionally, companies like Facebook pay for hosting on GitHub; in return, their code is kept private.
+For free accounts, all of your code is public.
+Remember that when you put a password in your code.
+
+So, you sign up for a GitHub account and you link the code you're working with on your own computer to your GitHub account.
+You own a repo, you get to decide who else can do what with the code.
+
+There's offshoots of GitHub like GitHub pages, where your repo is tunred into a functioning website, and Gist, where you upload snippets of code ("the gist of it")
+
+There are alternatives to GitHub
