@@ -96,7 +96,6 @@ Local is where you work, though, so that's pretty important too.
 These are the basics of how Git handles version control.
 
 
-3. What's the relationship between Git and GitHub?
 
 GitHub is a website and software service that provides hosting for remote Git repositories.
 You don't need to use GitHub to run Git, or to have a remote repo. You can build one yourself or use an alternative hosting site like GitBucket or Amazon's CodeCommit.
@@ -114,4 +113,5 @@ You own a repo, you get to decide who else can do what with the code.
 
 There's offshoots of GitHub like GitHub pages, where your repo is tunred into a functioning website, and Gist, where you upload snippets of code ("the gist of it")
 
-There are alternatives to GitHub
+
+4. Git, GitHub, and your personal morality
