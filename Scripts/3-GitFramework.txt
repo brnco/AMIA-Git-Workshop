@@ -1,0 +1,173 @@
+Git framework
+20 minutes - live
+-Overview
+--branches, file states, relationships
+--tracking changes
+-Automations vs Manual versioning
+--i.e. why Git works for code and not office documents
+-How to apply a Git-like framework to office documents
+
+1. Overview
+Ok, so we know now that Git and GitHub are optimized for code,
+We know that Git only tracks the changes to files, not different versions of whole files like you might rename v1.docx, v2.docx, etc.
+We know that other people can get a look at your code on GitHub and download it there and suggest changes
+Let's get a little more in depth with each of these ideas
+
+Glossary
+Branches
+Here's a very important diagram about Git (branch diagram)
+When you're doing your work, writing code, making updates, you're working on a "branch" of your codebase
+Branches help distinguish between coders, or between coding tasks
+So, to refer back to Jenny and Alex, they could each have their own branch of Jenny's portfolio website
+And Alex could make their changes without impacting Jenny's code directly
+
+You can see this in the diagram
+Alex "checks out" the code from Jenny's main branch onto his branch
+He makes his changes and submits them back to Jenny in the form of a Pull Request
+Jenny then merges Alex's code into her Main branch
+That's one way to use branches where two people are working on the same code base at the same time
+
+Another use for branches is where you want to make an update to main but you also want to leave your code base as it is until that change has been tested and passed QC
+So, you might be changing all your ffmpeg commands to use hardware acceleration to transcode video but you don't have time to do that in 1 session, and you need to start some transcodes tonight
+Without Git, you're kind limited to saving different file versions with different file names
+Which can break a microservices structure or just get really confusing
+Or, you can comment out the new lines until you're sure they're ready for production
+
+With Git, though, you can make a branch called HardwareAccel
+And you can do all of your testing and updates there
+Then, when you know it's working, you can merge those changes from the HarwareAccel branch into Main
+
+So, those are two workflows where branches are helpful
+You can have lots and lots of different branches, they all refer back to the point where they were checked out from main
+And, when you merge them back into main, the changes are automatically integrated into the code
+So, two people can make updates to the same file and, as long as those changes don't conflict with each other, they're automatically integrated
+We'll get to what happens when they do conflict later
+
+Does this make sense?
+
+
+File states
+So, how does Git actually know about changes to a file?
+You have to tell it!
+When you initialize a repo, you generate a .git folder in your repository
+It's normally hidden, but this is how Git knows what's going on in your repo
+If you remove or mess with this folder, bad things happen
+
+Git's data is stored in something called an object database
+This object database is basically its own filesystem that's optimized for software version control
+There are three objects in the database that we need to concern ourselves with: blobs, trees, and commits
+
+Blobs are the file data, but not the files themselves
+Blobs contain the sha1 hash of a file, not the filename
+Blobs contain only the data chunk(s) of files, not their info from the OS's file allocation table (or whatever)
+Git is content-addressable, which means that each file is not necessarily it's own thing in Git, but each package of unique content is
+Imagine if a txt file and a docx file could be compared to each other for just the text contained in them, without any formatting
+That's the kind of thing that Git is doing under the hood, for files
+
+Stick with me here
+
+Those blobs are then organized into tree objects, which more directly correspond to the file/folder structure of the repo
+Tree objects are lists and they're composed of tuples containing a filename, a file type, and a hash
+Trees are where you branch info lives
+Trees refer back to blob objects
+The tree is basically how Git moves between its object database and the filesystem you're familiar with
+
+The trees are then organized into commits
+A commit is a set of changes to one or more files
+A commit also contains a message describing what those changes are, written by you, the user
+So, if you went through and updated all the comments in your code, you might commit those changes with a message like "super duper comment update"
+That message is displayed next to each relevant filename in GitHub
+We'll get into this more later but these messages are a kind of perennial hell for everyone because we're all too busy to write them well
+
+Still, it's important to note that the filename and file content and integration of file changes are separated from each other here
+If you change a filename in your repo, that change is tracked on the tree level - ALL OF YOUR BLOBS ARE THE SAME
+If you don't commit your changes, your repo doesn't get updated, even though you pressed Ctrl+S
+
+Because there is redundancy on the content-level, the file/folder level, and those changes are rolled into a single object called a "commit"
+The system is very robust. It's very, very difficult to change something and have it unintentionally missed by Git
+
+The way this is managed on the user end is through the following three commands
+
+git add
+this tells Git to search the repo and add any content changes to its objects database
+
+git commit
+this tells git to bundle all the file content changes, all the filename and folder structure data, and various timestamps and admin info (like your acct)
+And package them into an update
+
+git push
+send all of the changes/ commits you made locally to the remote repository, so others can have the most up-to-date version of your code
+
+This diagram says it better than I ever could
+
+
+Versioning
+You might have made code that looks like index.html and index.html.bak - where you have an old version in case you mess something up
+As mentioned, Git doesn't save things like this
+There's no v1, v2, vN for individual files
+
+There are v1, v2, vN for the entire repository though
+Those are called releases
+You may be familiar with updating Firefox to the latest version, and it has a long string of number 60.2.37.244
+You can assign release numbers to your code or Git will automatically number them
+But, the release info refers to your entire repo, not an individual file
+
+
+2. Modeling Git for non-code documents
+You may be realizing that there are significant barriers to using Git with your office documents
+But, that doesn't mean we can't do something git-like anyway, or maybe closer to GitHub-like
+
+This becomes very important in a situation where you have multiple people in multiple locations who all need to work on the same file and you need to track who's worked on it when
+You know, like in quarantine
+
+Remember the essentials of the local-remote repository relationship:
+There is 1 stable version that is broadly accessible
+Everyone involved agrees on where it is
+Everyone involved knows that this 1 stable version may not be "done" - may not be everything we all want - but, it's the best we have right now
+Everyone agrees on the methods required to update it
+
+If you have all of those elements in place, you can do something Git-like
+
+I'll walk through an example from my own work: transcripts
+
+We have, depending on if an interview is conducted in a language other than English, between 7-20 individual versions of a transcript
+They're worked on by at least 6 people each
+They're in at least two different file formats, requiring 2 different softwares to read and some scripts I wrote to crosswalk between them
+None of the 226 interviews have transcripts which are done but all of them need to be available for curatorial and research use by staff and by patrons
+And, crucially, they need to be in a format that's broadly readable and shareable and understandable by non-technical people
+
+So, I set up an attachment field in Airtable
+It's called "current transcript"
+It contains the most up-to-date transcript
+Everyone in the department has transcript versions which aren't on Airtable
+Earlier versions, before something was edited out
+Curatorial versions where segments are highlighted for subclips
+Versions where the timecode matches the video without beginning and end titles
+Those versions are also spread across a series of RAIDs and networked drives, in addition to our individual computers
+
+When we need a transcript though, we generally don't need those arcane versions
+We need the best version, or, the best version we have now
+Everyone knows to find that on Airtable
+The version on Airtable may not exist anywhere else, but that's okay for now
+
+So, this Airtable field is like remote main
+It doesn't matter what you have locally, it doesn't matter what's on a shared drive that you can get thru the VPN
+The best version is on Airtable
+If you need to dig deeper, you can
+But, you also don't need to sort a folder by date modified or parse the filenames for versioning info
+You are assured that the best version available is on Airtable in that field. Period.
+
+The filename info is well-documented, everyone knows to append their initials to a document when they're done updating it
+"edited_jjp.xlsx" means that our video editor Joe Patrow matched this transcript to his edit of an interview
+"_reviewed-KD-MW.docx" means that Kate Dollenmeyer did an audit-edit of a transcript which was subsequently QC'd by Mae Woods
+
+But, it's this agreement between people, and the documentation that supports it, that makes the system work
+It doesn't have to be technical
+The reason Git is so powerful isn't just because it's well thought out, as a system, but also because everyone has kind of agreed to use it
+We've agreed to keep discussion of the code to the commit comments and wiki
+We've agreed on a branch structure for large and small updates
+We've agreed on the circumstances necessary to release a new version
+
+That kind of consensus is achievable in small teams without using Git
+And, if you set up a remote space where 1 single "best, right now" version of a document lives,
+you can take advantage of the distributed team setup without as much of the headache of versioning
