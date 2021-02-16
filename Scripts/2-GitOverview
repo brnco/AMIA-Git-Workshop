@@ -9,18 +9,22 @@ Git Overview
 
 Git solves a problem called "version control" whereby multiple people, often in separate locations, are working on the same file or set of files.
 You might be familiar with version control through things like Google Docs, where you can see who edited a file, see the changes they made, and restore different versions.
-That's the same basic functionality that Git provides although it's tailored to software development in a distributed-team environment.
+That's the same basic functionality that Git provides although Git is tailored to software development in a distributed-team environment.
 
 It's far from the first version control software, or ethos, either.
 There's a versioning tool that IBM developed in 1962 that's probably the first one.
-The major precursor to Git was something called Subversion, which I think we can all agree is a much better name.
+The major precursor to Git was something called Subversion, which I think we can all agree that is a much better name than Git
+I've never used it so I can't comment on its functionality
 
-Software isn't like office documents, though. It's maybe a bit like a PDF?
+I want to spend a moment here to talk about the nature of code and how it differs from office documents
+Because, if you haven't worked with code, it's not obvious why you wouldn't use Git to write your monthly reports
+
+Software isn't like office documents on Google Drive. It's maybe a bit like a PDF?
 With a PDF, you make your changes in Word or Google Docs and you export a PDF. If you messed up, you gotta re-export.
 Writing software works roughly the same way: you make changes in a text editor and render a result.
-The code isn't the end product, the code creates the end products (a website, a transcoded video file, etc.).
+The code isn't the end product, the code creates the end product (a website, a transcoded video file, an optimized ad experience, etc.).
 
-This is a critical difference between source code and office documents!
+This is a big deal!
 Office documents have a writing style to them that's largely subjective but also ONE OF THE MOST IMPORTANT THINGS ABOUT A DOCUMENT
 Think of all the times you've revised something to get the right "tone."
 Think of all the times you've wanted to parrot something a supervisor said in order to make a case for something you're working on.
@@ -28,25 +32,24 @@ Think of all the times you've wanted to parrot something a supervisor said in or
 Source code does not work like this.
 Source code can have a tone but it's largely unrelated to the output of the program and the output of the program is what matters.
 That's not to say there's not style differences between coders or between coding languages.
-You've probably seen some overwrought expression on TV to the effect of "they write beautiful code" - I'm not sure I've seen beautiful code (although I've seen clever code)
-Pro developers will often have a favorite language because they find it "expressive" - I just have languages that give me headaches.
+Pro developers will often have a favorite language because they find it "expressive," which is wild to me
 
 Nonetheless, there are often style guides for a particular coding language that can be used to govern variable and function names or force a certain interoperability/ readability between coders.
+An example for Python might be tabs vs spaces, which we won't be relitigating today
 These "styles," however, can be tested! Unlike the "tone" of an office document.
-People can and do run their code through "linters" which can conform their code to a set standard.
+People can and do run their code through "linters" which can conform their code to a set style.
 People can test different methods of solving the same problem to find the fastest one, or the one that eats the least memory, or is the most fault-tolerant.
 
 Imagine being able to test the "tone" of your email before an important person sees it.
-Now imagine that you could force that tone on all you emails.
+Now imagine that you could force that tone on all you emails to that important person.
 That's how the "style" of code differs from the style of office documents.
 
 This is really important because that tone is often the bedrock for whatever you're really trying to communicate.
 And, unlike with software, you can't really test it in an automated way, you can't conform the tone to a style guide automatically.
-
 So, if two people disagree about the tone of a document, they workshop it back and forth until it's right.
-In software, I mean there's still a human element that we'll get to, but if someone thinks a program can be constructed better, everyone involved can test it and agree on the best method (or agree there's not a best method!)
+In software, I mean there's still a human element that we'll get to, but if someone thinks a program can be constructed better, everyone involved can test it and agree on the best way to do it (or agree there's not a best way!)
 
-Git provides methods for handling all of those issues.
+Git provides methods for handling all of these issues.
 
 
 
@@ -56,33 +59,33 @@ Git tracks the changes to a file.
 You tell Git to track a file and it records all the changes to it.
 It does not save different updates to files as their own documents.
 It applies changes relative to other file versions.
-Files are never final.
 
 You may have looked at a commit in your life and wondered, "there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
 Those are the changes.
 
-Here's a little workflow:
+Here's an example workflow:
 Jenny notices that the alignment of the images on her hand-made portfolio website is all out of whack.
-She opens the relevant html file in her favorite text editor, makes soem changes.
+She opens the relevant html file in her favorite text editor, makes some changes.
 She saves the changes locally and uploads them via FTP to her webserver.
 Her website now looks better.
 
-That "Saves the changes and uploads" is the thing that Git manages.
+That "Saves the changes and uploads" bit is the thing that Git manages.
 
-Here's a little glossary:
-Repository - repo for shorthand (the life of a repo man is always intense). Repos are both the file and folder structure of the code and also the changes, the users, the forums, etc.
--There are two kinds of repositories, local and remote. Local is code on your computer that you're using right now. Remote is the code on GitHub (or similar). You don't need a remote to run Git.
+Here's some important terms for how Git manages versions
+Repository - repo for shorthand. Repos are both the file and folder structure of the code and also the changes, the users, etc.
+-There are two kinds of repositories, local and remote. Local is code on your computer that you're using right now. Remote is the code on GitHub (or similar). You don't need a remote repo to run Git.
 
 Commit - commits are how you add changes to a file. You can restore old commits. You can apply one commit at a time or lots of them at once. You can comment on commits.
 
 Back to Jenny, if her friend Alex notices that the alignment could be done better, and if Jenny is using GitHub, Alex can submit a new version of her html file with the "better" code.
-All the filenames stay the same.
+All the filenames stay the same so none of the links on her site break just because it's a new version of the code
 There's no "_better_real2-FINAL.hmtl" in someone's email.
 And, before Alex's code replaces Jenny's Jenny gets a chance to review it and make comments and suggestions.
 
-That's called a Pull Request. "Pull" is another important Git term and it means to retrieve code from somewhere else (the remote repo or another repo entirely) and integrate it into the existing code.
+That's called a Pull Request. "Pull" is another important Git term and it means to retrieve code from somewhere else and integrate it into the existing code.
+That "somewhere else" can be the remote repo or another repo entirely
 
-So, you can see there's a really important relationship developing between a remote repository and a local repository.
+So, you might notice that there's a really important relationship between a remote repository and a local repository.
 They are linked but they are not the same.
 The remote repo is where the best, most up to date, most usable and refined code is.
 Everyone agrees that's where the canonical version of the code is.
@@ -90,126 +93,110 @@ Everyone agrees what the canonical version of the code is.
 There's a code of conduct in the remote repo that everyone abides by.
 There's a license in the remote repo that people can refer back to when deploying your code for themselves.
 Remote is where others go to use or modify code that you wrote.
-Remote protects against corruption to your local server.
+Remote protects against corruption to your local hard drive.
 Local is where you work, though, so that's pretty important too.
 
-These are the basics of how Git handles version control.
+So, you make your changes locally, you test that they work, you send them to your remote repo
+People with access to your remote repo can then change the code you wrote and send it back to you and you can integrate the changes
+You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes
+And those are the basics of how Git handles version control.
+
+
 
 
 3. What's the relationship between Git and GitHub?
 
 GitHub is a website and software service that provides hosting for remote Git repositories.
 You don't need to use GitHub to run Git, or to have a remote repo. You can build one yourself or use an alternative hosting site like GitBucket or Amazon's CodeCommit.
-The reasons people use GitHub are because it's free, everyone who codes has some notion of how it works, and it's really, really to share code with GitHub.
+The reasons people use GitHub are because it's free, most people who code have some notion of how it works, and it's really, really easy to share code with GitHub.
 
-Git is maintained on GitHub but the two are otherwise unaffiliated. The Linux kernel is the biggest project on GitHub (almost 1million commits!)
+Git is maintained on GitHub but the two are otherwise unaffiliated.
+The Linux kernel is the biggest project on GitHub (almost 1million commits!)
 You might be thinking, that's a lot of server space - how does GitHub afford to provide free hosting?
-The filesize limit on GitHub is 100MB. Code is small.
-Additionally, companies like Facebook pay for hosting on GitHub; in return, their code is kept private.
+First, the filesize limit on GitHub is 100MB. Code is small.
+Second, companies like Facebook pay for hosting on GitHub; in return, their code is kept private.
 For free accounts, all of your code is public.
 Remember that when you put a password in your code.
 
 So, you sign up for a GitHub account and you link the code you're working with on your own computer to your GitHub account.
 You own a repo, you get to decide who else can do what with the code.
 
-There's offshoots of GitHub like GitHub pages, where your repo is turned into a functioning website, and Gist, where you upload snippets of code ("the gist of it")
+There's also offshoots of GitHub like GitHub pages, where your repo is turned into a functioning website, and Gist, where you upload snippets of code ("the gist of it")
+
+So that's the basics of the Git ecosystem
+
+
 
 
 4. Git, GitHub, and your personal morality
 
 Storytime again. And I want to be absolutely clear that what follows is my perspective on this and doesn't necessarily reflect the views of AMIA and of my employer.
+I would also like to add content warnings about police violence and abuse
+This section will conclude in about 6 minutes, if you want to step off until then
+
 In 2018 an artist named Sam Levigne posted a script and dataset to GitHub that made quite a ruckus.
-Sam's work is really cool, he once got a Rhizome microgrant for a project where the entirety of the Enron email archive would be emailed to you in real time.
-Like if you were just on copy for one of the biggest corporate implosions in history. You could watch evidence roll in on your phone. Really cool project, to me.
-
-For another project,
 Using the LinkedIn API, Sam was able to scrape the professional social media site for people whose workplace was listed as Immigration and Customs Enforcement.
-If you're not in the US, ICE is a government-funded gang hellbent on making life miserable for immigrants
-Anyway, that LinkedIn data was collated and put on GitHub so that anyone could make use of it.
-"use" here was presumably people who wanted to make life a little more difficult for those who had chosen to sell their labor as the front line soldiers of fascism
+If you're not familiar, ICE is a government-funded gang hellbent on making life miserable for immigrants
+That LinkedIn data was collated and put on GitHub so that anyone could view/ make use of it.
 
-I want to be clear on this point because it was missed in a lot of the coverage: this wasn't doxxing.
+I want to be clear on this point because it was missed in a lot of the coverage: this was different than doxxing.
 As you know, LinkedIn data isn't that private - it has your city and your image and your employer
-He didn't post anything that wasn't already available publicly.
+Sam didn't post anything that wasn't already available publicly. His contribution was compiling all the data in one place
 
-I'm old enough to remember Perfect 10 v Google, and for me the parallels were striking
-In that suit, Perfect 10 magazine (LOL) alleged that collating and presenting images altogether, the way Google Image Search does,
-constituted an infringement on the copyrights of the photographers.
-Ultimately, the courts sided with Google and determined that collating and presenting this data altogether constituted a transformative use,
-and thus was fair use.
-Google was be allowed to collate and display tens of millions of images of pornography
-while Sam here had his dataset of 1600 ICE employee names, photos, and cities taken down from GitHub within hours
+I'm old enough to remember Perfect 10 v Google, and for me the parallels were striking, you all can look that up on your own time
+This was legal, it wasn't doxxing, but i9t was a violation of the Terms of Service for Sam to post his dataset of 1600 fascists' names, photos, and cities to GitHub
+The dataset was removed in a matter of hours
 
 A few weeks before Sam's incident, GitHub was acquired by Microsoft.
 Microsoft has contracts with ICE.
-You may have seen that Microsoft and GitHub employees are currently engaged in a protracted argument with their employer about those ICE contracts.
 While the Microsoft acquisition and the ICE dataset takedown may have a tenuous direct causality
-The conditions which made it all possible were very much the same, they still exist largely unchanged
+The conditions which made it all possible were very much the same and still exist largely unchanged
 
 In short, fuck ICE and fuck the cowards at GitHub for taking that down
 
-Indeed, this incident marked a significant change for GitHub, which at one time was known as the heart of the open-source community
-A community with the kind of libertarian ethos that you might expect to be upset about, say,
-doing AI work for people who think borders are real and breaking apart families is necessary for "security"
+And indeed, this incident marked a significant change for GitHub, which at one time was known as the heart of the open-source community
+A community with the kind of libertarian ethos that you might expect to be upset about, idk,
+doing AI work for people who think borders are real or that breaking apart families is necessary to achieve "security"
 
 But Git itself isn't free from this sort of controversy either.
 Git was developed in a single weekend by Linus Torvalds, who also wrote the Linux kernel. He's a legend in open source.
 Linux is actually named after Linus, in an interview someone asked him "Why did you name it Git?"
 And he answered "I can't help but name things after myself I guess"
-For idiot Americans like myself, being a git is not a nice thing (but also not the worst)
+For idiot Americans like myself, being a git is not a nice thing (but also not the worst), it's like being a "jerk"
 
 And that joke would be a lot funnier if it wasn't so true.
 
 In September of 2018, after 27 years leading the Linux project, personally approving every single line of code, Linus Torvalds stepped down from his role
 He'd been using abusive language in emails and pull-request comments, and everywhere he wrote really, for decades
-One famous email from 2012 began with
-"Mauro, SHUT THE FUCK UP!
-It's a bug alright - in the kernel. How long have you been a
-maintainer? And you *still* haven't learnt the first rule of kernel
-maintenance?"
-
-Linux is in use on some 2-billion machines worldwide.
 
 I bring all this up because I don't want to go through 2 hours of presentation here and have you leave thinking
-"this is amazing and there's nothing socially wrong with it"
+"this is amazing and there's nothing wrong with it"
 We need to bring critical eyes to the tools we employ to do our work
 We need to keep in mind that our work isn't just us but occurs in a context
-That context today is ecological collapse and the friendlier face of empire
+That context today is ecological collapse and a friendlier face of American empire
 
-So, there are alternatives to GitHub, there are alternatives to Git for version control
+So, there are alternatives to GitHub, there are alternatives to Git
 You can find what they are on your own time
-I use both of these services and that says a lot more about me than anything I could say to you now
+I use both of these services, and the text editor Atom, also owned by GitHub/ MS, and that says a lot more about me than any words I could say now
 
-I also want to put it out there that while it's important to have a critical framework for your work
+I do want to put it out there, though, that while it's important to have a critical framework for your work
 it's not something you have a lot of control over
-Like boycotts of certain brands or products, it reduces us and our capacity to institute change by tying that change to a framework of capitalism
-Not that boycotts don't work occasionally but if you boycott AWS that's like 30% of the web
-It's going to be exponentially harder for you to do your work, maybe these incidents matter that much to you
+Boycotts have a tendency to reduce us and our capacity to institute change by tying that change to a framework of capitalism
+Boycotts work when they strengthen relationships between people
+But, if you boycott AWS, that's like 30% of the web
+If you boycott Linux, it's installed on over 2 billion machines worldwide
+It's going to be exponentially harder for you to do your work
+maybe these incidents matter that much to you, and if they do, know that I support you
 
 ultimately, though, capitalism needs abuse and exploitation in order to exist at all
-Your wage labor as archivists supports such a system,
+Your wage labor as archivists at an institution supports such a system,
 your digital community archives still require lithium, extracted and fought over at great human and ecological cost
 
-So, if the behavior of Torvalds and Microsoft gets you as worked up as I am about it, my suggestion is twofold
+If the behavior of Torvalds and Microsoft gets you as worked up as I am about it, my suggestion is twofold
 Keep that feeling and get to know it a bit
 Get involved in something local to where you live
-
-I'm a member of the Los Angeles Tenants Union
-LATU keeps people in their homes in the face of landlord harassment,
-in the face of sheriffs trying to forcibly remove people,
-in the face of 184,000 households in LA County who acquired rent debt during the pandemic and are at risk for eviction (including mine!)
-
-Now, I just answer some emails for LATU for a few hours a week, I'm a nobody. I'm just some dude.
-But, helping people stay in their homes via email has more impact on more lives than a lifetime of using BitBucket ever could
-
-You can decide for yourself if the moral trade off is worth it for these tools, I support you
-But, I want to encourage all of you to think big.
-Think of what enabled these people to do horrible things and go after the conditions that made it possible
-Get a group chat going with the other people in your building
-donate to jail support, stop paying rent, get in the streets, cyberbully the mayor,
-Buy land and sell it for $1 to a local indigenous group, stop using paper towel
-There's no shortage of things to do
-Whatever your thing is, do that
-And, if enough people do their thing, the Torvalds and Gates of the world will have less space to be horrible
-
-That's the hope anyway!
+I do my Tenants Union stuff, for example
+But, think big.
+These people were enabled to do horrible things by specific material conditions
+Figure out what those conditions are and go after them
+If enough people do that, the Torvalds and Gates of the world will have less space to be horrible, hopefully
