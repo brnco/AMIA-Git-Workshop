@@ -8,16 +8,20 @@ Git Overview
 1. What is version control and who needs it?
 2:30
 
-Git solves a problem called "version control" whereby multiple people, often in separate locations, are working on the same file or set of files.
+Git solves a problem called "version control"
+whereby multiple people, often in separate locations,
+are working on the same file or set of files.
+
 You might be familiar with version control through things like Google Docs,
 where you can see who edited a file, see the changes they made, and restore different versions.
-That's the same basic functionality that Git provides although Git is tailored to software development in a distributed-team environment.
+That's the same basic functionality that Git provides
+although Git is tailored to software development in a distributed-team environment.
 
 It's far from the first version control software, or ethos, either.
-IBM developed one in 1962 that was probably the first
+The first one was probably something IBM did in 1962
 The major precursor to Git was something called Subversion,
-which I think we can all agree that's a much better name than Git
 I've never used it so I can't comment on its functionality
+but I think we can all agree that "Subversion" is a much better name than Git
 
 I do want to spend a moment here to talk about the nature of code and how it differs from office documents
 Because, if you haven't worked with code, it's not obvious why you wouldn't use Git to write your monthly reports
@@ -37,7 +41,11 @@ Source code can have a tone but it's largely unrelated to the output of the prog
 and the output of the program is what matters.
 And, the text used to create that output can be tested, unlike "tone"
 
-Git provides methods for handling these issues.
+There's other reasons why you wouldn't use Git for office documents
+But, for me, that's the big one.
+
+Anyway, to wrap up this intro,
+Git provides a framework and methods for handling versioning for software and related documentation
 
 
 
@@ -49,10 +57,11 @@ You tell Git to track a file and it records all the changes to it.
 It does not save different updates to files as their own documents (like in Google Docs).
 It applies changes relative to other file versions.
 
-You may have looked at a commit in your life and wondered, "there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
+You may have looked at a commit on GitHub and wondered,
+"there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
 Those 7 lines are the changes.
 
-Here's an example workflow:
+We can demonstrate with an example workflow:
 Jenny notices that the alignment of the images on her hand-made portfolio website is all out of whack.
 She opens the relevant html file in her favorite text editor, makes some changes.
 She saves the changes on her computer and uploads them via FTP to her webserver.
@@ -61,22 +70,23 @@ Her website now looks better.
 That "Saves the changes and uploads" bit is the thing that Git manages.
 
 Git does not auto-rename your updated file with like "v3.js"
-It actually hashes the filedata in a database, that's how it knows if a file has changed
+It actually hashes the filedata in a database, and that's how it knows if a file has changed
 
-Those are the basics of how Git handles version control.
-
+So, those are the basics of how Git handles version control.
+We'll be getting into much more detail in a moment
 
 
 
 3. What's the relationship between Git and GitHub?
 1:30
 
-
 GitHub is a website and software service that provides hosting for remote Git repositories.
 You don't need to use GitHub to run Git, or to have a remote repo.
 You can build one yourself or use an alternative hosting site like GitBucket or Amazon's CodeCommit.
 The reasons people use GitHub are because it's free, most people who code have some notion of how it works,
 and it's really, really easy to share code with GitHub.
+
+It's like Dropbox but streamlined for Git/ software development
 
 Git is maintained on GitHub but the two are otherwise unaffiliated.
 
@@ -90,7 +100,7 @@ So, you sign up for a GitHub account and you link the code you're working with o
 You own a repo, you get to decide who can do what with the code.
 
 There's also offshoots of GitHub like GitHub pages, where your repo is turned into a functioning website,
-and Gist, where you upload snippets of code ("the gist of it")
+and Gist, where you upload snippets of code (i.e. "the gist of it")
 
 So that's the basics of the Git ecosystem
 
@@ -105,11 +115,13 @@ I would also like to add content warnings about police violence and abuse
 This section will conclude in about 5 minutes, if you want to step off until then
 
 In 2018 an artist named Sam Levigne posted a script and dataset to GitHub that made quite a ruckus.
-Using the LinkedIn API, Sam was able to scrape the professional social media site
+Using the LinkedIn API, Sam was able to scrape the professional LinkedIn
 for people whose workplace was listed as Immigration and Customs Enforcement.
-If you're not familiar, ICE is a government-funded gang hellbent on making life miserable for immigrants
+If you're not familiar, ICE is a US-government-funded gang hellbent on making life miserable for immigrants
 That LinkedIn data was collated and put on GitHub so that anyone could view and make use of it.
-Sam didn't post anything that wasn't already available publicly. His contribution was compiling all the data in one place
+
+Sam didn't post anything that wasn't already available publicly.
+His contribution was compiling all the data in one place
 
 I'm old enough to remember Perfect 10 v Google, so what happened next was really a treat to observe
 Because we know that what's right isn't always legal, and what's legal isn't always right
@@ -119,41 +131,53 @@ But, it was against the GitHub Terms of Service and removed within hours
 A few weeks before Sam's incident, GitHub was acquired by Microsoft.
 Microsoft has contracts with ICE.
 The company insisted the two events were unrelated
-And indeed, this incident marked something of a shift for GitHub, which at one time was known as the heart of the open-source community
+And indeed, this incident marked something of a shift for GitHub,
+which at one time was known as the heart of the open-source community
 A community with the kind of libertarian ethos that you might expect to be upset about, idk,
 doing AI work for people who think borders are real or that breaking apart families is necessary to achieve "security"
 
-In short, fuck ICE and GitHub are cowards for taking that down
+Some of you might know Misty De Meo, who just left GitHub because of the ICE contract.
+
+So, in short, fuck ICE and GitHub are cowards for taking that down
 
 But Git itself isn't free from this sort of controversy, either.
-Git was developed in a single weekend by Linus Torvalds, who also wrote the Linux kernel. He's a legend in open source.
+Git was developed in a single weekend by the same guy who initially developed the Linux kernal, Linus Torvalds. The legend.
 Linux is actually named after Linus,
-in an interview someone asked him "Why did you name it Git?"
+I read in an interview where someone asked him "Why did you name it Git?"
 And he answered "I can't help but name things after myself I guess"
 
 And that joke would be a lot funnier if it wasn't so true.
-For idiot Americans like myself, being a git is not a nice thing (but also not the worst), it's like being a "jerk"
+For Americans like myself, being a git is not a nice thing (but also not the worst), it's like being a "jerk"
 
-In September of 2018, after 27 years leading the Linux project, personally approving every single line of code, Linus Torvalds stepped down from his role
-He'd been using abusive language in emails and pull-request comments, and everywhere he wrote really, for decades
+Linus Torvalds is maybe a bit more than a jerk, though
+In September of 2018, after 27 years leading the Linux project,
+personally approving every single line of code,
+he stepped down from his role
+He'd been using abusive language in emails and pull-request comments, and everywhere he wrote, really, for decades
+
+[beat]
 
 We need to bring critical eyes to the tools we employ to do our work
 We need to keep in mind that our work isn't just us but occurs in a context
 That context today is ecological collapse and a friendlier face of American empire
 
-So, there are alternatives to both Git and GitHub
+So, there are alternatives to both Git and GitHub - we won't be discussing them here
 I use both of these services, and the text editor Atom, also owned by GitHub/ MS,
-and that says a lot more about me than any words I could say now
+And I run Manjaro/ Arch Linux on my personal computer and love it
+and that says a lot more about me than the rest of the words I'm about to say in this section
 
-I do want to put it out there, though, that while it's important to have a critical framework for your work
+I do want to put it out there, though,
+that while it's important to have a critical framework for your work
 Your work is not something you have a lot of control over
-We're all compelled to work, after all
+We're all compelled to work under capitalism, after all
 
-capitalism needs abuse and exploitation in order to exist at all
+capitalism needs abuse and exploitation in order to even exist
+
 The events described above are symptomatic of the conditions that gave rise to them
 If it bugs you, find a way to fight those conditions that connects with you
 I got the tenants union stuff
 maybe you're into community kitchens or cyberbullying the mayor or just donating to whomever needs it
 IMO those kind of things are much more impactful than not using a particular software service
 
-That's my bit on the ethics of this software ecosystem
+So, that's my bit on the ethics of this software ecosystem
+Now you know and you can make informed decisions
