@@ -27,31 +27,34 @@ Who I Am & What I Do
 10 minutes - live
 
 What is version control and who needs it?
-[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L8)
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L8)
 
 How does Git do version control? How does other software?
-[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L52)
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L52)
 
 What's the relationship between Git and GitHub?
-[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L80)
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L80)
 
 Git, Github, and your personal morality
-[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L110)
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L110)
 
 
 ## Git framework
 
 20 minutes - live
 
-### Overview
+Overview
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/55a266ff4dd80c3f1ef4e2feb106a851591aee4f/SegmentScripts/3-GitFramework.txt#L10)
 
 branches, file states, relationships
 
 tracking changes
 
-### Automations vs Manual versioning
+Automations vs Manual versioning
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/55a266ff4dd80c3f1ef4e2feb106a851591aee4f/SegmentScripts/3-GitFramework.txt#L149)
 
-### How to apply a Git-like framework to office documents
+How to apply a Git-like framework to office documents
+[link](https://github.com/brnco/AMIA-Git-Workshop/blob/55a266ff4dd80c3f1ef4e2feb106a851591aee4f/SegmentScripts/3-GitFramework.txt#L164)
 
 
 ## Break
