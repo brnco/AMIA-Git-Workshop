@@ -26,13 +26,17 @@ Who I Am & What I Do
 
 10 minutes - live
 
-### What is version control and who needs it?
+What is version control and who needs it?
+[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L8)
 
-### How does Git do version control? How does other software?
+How does Git do version control? How does other software?
+[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L52)
 
-### What's the relationship between Git and GitHub?
+What's the relationship between Git and GitHub?
+[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L80)
 
-### Git, Github, and your personal morality
+Git, Github, and your personal morality
+[segment link](https://github.com/brnco/AMIA-Git-Workshop/blob/7c89e0d04e7c0862bd74f0bfb3dfe1ea20433f46/SegmentScripts/2-GitOverview#L110)
 
 
 ## Git framework
