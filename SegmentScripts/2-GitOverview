@@ -8,20 +8,28 @@ Git Overview
 1. What is version control and who needs it?
 2:30
 
+[what is version control?]
+
 Git solves a problem called "version control"
 whereby multiple people, often in separate locations,
 are working on the same file or set of files.
+
+[screencap of Google docs versions]
 
 You might be familiar with version control through things like Google Docs,
 where you can see who edited a file, see the changes they made, and restore different versions.
 That's the same basic functionality that Git provides
 although Git is tailored to software development in a distributed-team environment.
 
+[ibm logo - subversion logo - git logo, etc.]
+
 It's far from the first version control software, or ethos, either.
 The first one was probably something IBM did in 1962
 The major precursor to Git was something called Subversion,
 I've never used it so I can't comment on its functionality
 but I think we can all agree that "Subversion" is a much better name than Git
+
+[slides off]
 
 I do want to spend a moment here to talk about the nature of code and how it differs from office documents
 Because, if you haven't worked with code, it's not obvious why you wouldn't use Git to write your monthly reports
@@ -41,6 +49,8 @@ Source code can have a tone but it's largely unrelated to the output of the prog
 and the output of the program is what matters.
 And, the text used to create that output can be tested, unlike "tone"
 
+so, you can't automatically integrate the tone on different branches into main, basically.
+the text is just too different
 There's other reasons why you wouldn't use Git for office documents
 But, for me, that's the big one.
 
@@ -52,20 +62,30 @@ Git provides a framework and methods for handling versioning for software and re
 2. How does Git do version control?
 1:00
 
+[how does git do version control?]
+
+[git tracks changes to files]
+
 It does so by tracking the changes to a file.
 You tell Git to track a file and it records all the changes to it.
 It does not save different updates to files as their own documents (like in Google Docs).
 It applies changes relative to other file versions.
 
+[screenshot of a single commit]
+
 You may have looked at a commit on GitHub and wondered,
 "there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
 Those 7 lines are the changes.
+
+[workflow diagram]
 
 We can demonstrate with an example workflow:
 Jenny notices that the alignment of the images on her hand-made portfolio website is all out of whack.
 She opens the relevant html file in her favorite text editor, makes some changes.
 She saves the changes on her computer and uploads them via FTP to her webserver.
 Her website now looks better.
+
+[workflow diagram with Git bit circled]
 
 That "Saves the changes and uploads" bit is the thing that Git manages.
 
@@ -79,6 +99,10 @@ We'll be getting into much more detail in a moment
 
 3. What's the relationship between Git and GitHub?
 1:30
+
+[what's the relationship between Git and GitHub]
+
+[local <-> remote diagram]
 
 GitHub is a website and software service that provides hosting for remote Git repositories.
 You don't need to use GitHub to run Git, or to have a remote repo.
@@ -96,6 +120,8 @@ Second, companies like Facebook pay for hosting on GitHub; in return, their code
 For free accounts, all of your code is public.
 Remember that when you put a password in your code.
 
+[screencap of signing up for git acct or w/e]
+
 So, you sign up for a GitHub account and you link the code you're working with on your own computer to your GitHub account.
 You own a repo, you get to decide who can do what with the code.
 
@@ -109,6 +135,8 @@ So that's the basics of the Git ecosystem
 
 4. Git, GitHub, and your personal morality
 5:00
+
+[slides off]
 
 I want to be absolutely clear that what follows is my perspective on this and doesn't necessarily reflect the views of AMIA and of my employer.
 I would also like to add content warnings about police violence and abuse

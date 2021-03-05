@@ -15,12 +15,19 @@ We know that Git only tracks the changes to files, not different versions of who
 We know that other people can get a look at your code on GitHub and download it there and suggest changes
 Let's get a little more in depth with each of these ideas
 
+[glossary empty]
+
 We'll start with a Glossary
+
+[repository definition]
+
 Repository - repo for shorthand.
 Repos are both the file and folder structure of the code and also the changes, the users, the comments on a commit, etc.
 -There are two kinds of repositories, local and remote.
 Local is code on your computer that you're using right now.
 Remote is the code on GitHub (or similar). You don't need a remote repo to run Git.
+
+[commit definition]
 
 Commit
 A commit is a set of changes to one or more files.
@@ -28,6 +35,8 @@ commits are how you assemble all the changes you've made to your work.
 You can restore old commits.
 You can apply one commit at a time or lots of them at once.
 You can comment on commits.
+
+[push pull definition]
 
 "Pull" is another important Git term and it means to retrieve code from somewhere else and integrate it into the existing code.
 That "somewhere else" can be the remote repo or another repo entirely
@@ -39,6 +48,9 @@ So, you push to something
 And, you pull from something
 
 Ok let's get into some workflows
+
+[branch diagram]
+
 Branches
 Here's a very important diagram about Git (branch diagram)
 When you're doing your work, writing code, making updates, you're working on a "branch" of your codebase
@@ -54,6 +66,8 @@ They carry the same filenames and folder structure unless I change them,
 there's no _BC in a filename to distinguish that I worked on it
 although that information is logged in a commit
 
+[branch diagram annotated]
+
 Ok, moving between branches
 We say that you "checkout" code from Branch A to Branch B
 To bring those changes back from Branch B to Branch A, we call that a "merge"
@@ -65,6 +79,8 @@ as long as those changes don't conflict with each other,
 they're automatically integrated
 
 We'll get to what happens when those changes do conflict later
+
+[local <-> remote diagram]
 
 So, you might notice that there's a really important relationship
 between a remote repository and a local repository.
@@ -90,7 +106,9 @@ But, after this next section, we'll do the tutorials and maybe some things will 
 
 
 File states
-4:30
+5:00
+
+[.git folder screenshot]
 
 So, how does Git actually know about changes to a file?
 You have to tell it!
@@ -98,10 +116,14 @@ When you initialize a repo, you generate a .git folder in your repository
 It's normally hidden, but this is how Git knows what's going on in your repo
 If you remove or mess with this folder, bad things tend to happen
 
+[object database diagram]
+
 Git's data is stored in an object database
 This object database is basically its own filesystem
 It's optimized for software version control
 There are three objects in the database that we need to concern ourselves with: blobs, trees, and commits
+
+[blob diagram]
 
 Blobs are the file data, but not the files themselves
 Blobs contain the sha1 hash of a file, not the filename
@@ -112,12 +134,16 @@ That's the kind of thing that Git is doing under the hood, for files
 
 Stick with me here
 
+[tree diagram]
+
 Those blobs are then organized into tree objects, which more directly correspond to the file/folder structure of the repo
 The tree is basically how Git moves between its object database and the filesystem on your machine
 Tree objects are lists
 and they're composed of tuples containing a filename, a file type, and a hash
 Trees are where you branch info lives
 Trees refer back to blob objects
+
+[commit diagram]
 
 The trees are then organized into commits
 A commit, again, is a set of changes to one or more files
@@ -133,6 +159,8 @@ The system is very robust. It's very, very difficult to change something and hav
 
 The way this is managed on the user end is through the following three commands
 
+[just this same below text on screen]
+
 git add
 this tells Git to search the repo and add any content changes to its objects database
 
@@ -147,10 +175,12 @@ This diagram says it better than I ever could
 
 
 Versioning
-5:00
+2:00
 
 You might have made code that looks like index.html and index.html.bak - where you have an old version in case you mess something up
 As mentioned, Git doesn't save things like this
+
+[versions screencap]
 
 There are v1, v2, vN for the entire repository though
 Those are called releases
@@ -162,6 +192,10 @@ I'm gonna keep repeating this kind of thing for the whole workshop so it sinks i
 
 
 2. Modeling Git for non-code documents
+5:00
+
+[slides off]
+
 You may now be realizing that there are significant barriers to using Git with your office documents
 But, that doesn't mean we can't do something git-like anyway, or maybe closer to GitHub-like
 

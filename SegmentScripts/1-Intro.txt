@@ -9,6 +9,8 @@ Brendan Introductions
 
 Who I Am & What I Do
 
+[no slide]
+
 Hi Everyone, what amazing introductions from you all!
 I want to thank the Open Source Committee and the Hack Day Organizers for the chance to do this presentation
 They did a lot of work so that I didn't have to worry about anything but the presentation itself, and I just really appreciate that
@@ -45,7 +47,11 @@ So, I'm giving this presentation for the non-experts amongst us
 And, I welcome input from any experts amongst us where I've misrepresented an idea,
 or if there's a "canonical" way of doing something that I missed
 
+
 Agenda
+
+[agenda slide]
+
 Ok so there's two halves here with a break in the middle
 the first half is devoted to discussing Git generally
 The second half will have all of the How-To's
