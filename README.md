@@ -21,6 +21,8 @@ Who I Am & What I Do
 
 ### Agenda
 
+see below
+
 
 ## Git Overview
 
