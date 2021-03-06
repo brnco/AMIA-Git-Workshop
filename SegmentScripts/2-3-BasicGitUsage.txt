@@ -1,0 +1,19 @@
+2-3 Basic Git Commands
+
+Folks we have covered a lot of ground and this is the big stuff
+
+Here's some basic methods for Git
+
+I'm not following documentation for this, actually
+But, I am using a flavor of Arch Linux
+so the exact commands may or may not be suitable for your Windows or Mac environment
+but the doc linked above has you covered
+
+Let's go!
+
+1. how to send changes to remote
+you've seen glimpses of this but we're gonna do it in depth for a moment
+
+You write a new script, it's its own file
+you press save in your text editor
+you give it a name

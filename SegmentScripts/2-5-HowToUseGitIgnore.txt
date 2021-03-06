@@ -1,0 +1,83 @@
+2-4 How to Use a .gitignore
+
+Ok so let's say there's a file that you need locally and you don't want it in remote
+
+This happens pretty often, actually!
+
+There are some filetypes that really shouldn't be in a repo
+like video - it's too big!
+so that's one reason you might use a .gitignore
+
+You'll remember too that for free accounts, your repos are public
+that means that every line of code in there is accessible by anyone with an internet connection
+
+There are lots of programming tasks that require passwords, though
+if you're using an API for anything, for example
+you usually have to send some kind of token/ key to the service with your API calls
+Or, if you're sending an email with your script
+you need to authenticate to the email server
+
+You don't want those passwords on the open web!
+
+the way to deal with that is:
+locally, you have a file named something like: credentials_all.txt
+that file stores all your passwords and API access tokens
+your script parses it when it needs to use a password for something
+
+that file is then added to the .gitignore
+
+and it never ends up in the remote repo
+it also means that changes to this file aren't tracked!
+but, you manage this file manually, so that's ok usually
+
+As always, I'm following the official GitHub documentation for this, available here:
+https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
+additionally, I'm using a flavor of Arch Linux
+so the exact commands may or may not be suitable for your Windows or Mac environment
+but the doc linked above has you covered
+
+1. how to create a .gitignore file
+go to your repository's local folder
+click "show hidden files"
+go into the .git folder
+in terminal, type: touch .gitignore
+or, in your favorite text editor: open a new file and save as .gitignore
+
+in this .gitgnore file, type: credentials_all.txt
+
+add, commit, and push your changes
+you should see that everything but credentials_all.txt is in your remote repo
+
+2. how to add a class of files to .gitignore
+.gitignore supports wildcards!
+I mentioned before that you generally don't want video in your repos
+to exclude all .mov files from your repo you would type: *.mov
+and you can do that for any filetype
+
+or you can exclude files in a folder with: dont_push_me/
+that's a relative path to the main repo directory
+so to exclude just a subdirectory you can use: really/dont_push_me
+
+3. how to remove a file that's already been tracked
+But Brendan, you're saying,
+"I already pushed my password to remote, what can I do?"
+and that's a good question!
+
+you'll recall that git saves the changes, so if you just re-do the code and delete your password
+it's still available in an older commit, so people can still access it
+
+let's remove it for good!
+
+first, if you made a rule for it in .gitignore, you gotta remove the rule
+if you committed your changes, you gotta undo them
+
+once the rule is gone,
+in terminal, type: git rm --cached credentials_all.txt
+
+add and commit your changes
+re-add the rule
+add and commit those changes
+and push everything to remote
+
+that file should be gone forever
