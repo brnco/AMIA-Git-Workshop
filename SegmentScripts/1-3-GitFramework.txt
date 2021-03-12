@@ -203,7 +203,7 @@ Everyone involved knows that this 1 stable version may not be "done"
 may not be everything we all want
 but, it's the best we have right now
 
-If you have all of those elements in place, you can do something Git-like/ GitHub-like
+If you have all of those elements in place, you can do something Git-like/ GitHub-like (or maybe svn-like)
 
 I'll walk through an example from my own work: transcripts
 
@@ -222,6 +222,8 @@ They're not "done" and you can't see every version we have on the shared drive
 but you can see the best one we have now
 
 So, this Airtable field is like remote main
+And everyone has their own versions and structure on their local machines
+Like their own branches or repos
 
 So, an agreement between people, and the documentation that supports it, that makes the system work
 It doesn't have to be technical

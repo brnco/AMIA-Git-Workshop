@@ -4,21 +4,18 @@ Intro
 Folks, GitHub is ending it's support for basic HTML authentication
 That means that soon, sometime, who knows when really,
 you won't be able to push your changes by logging into GitHub on the CLI
+as you've seen me do in this presentation
 You'll have to use SSH
 
-here's how simple HTTP authentication works
-you make your changes, you add and commit them
-when you push, you're prompted for your GitHub username/ email and pwd
-
 SSH is more secure, is the real reason they're doing it
-But also, if you have mroe than 1 GitHub account
+But also, if you have more than 1 GitHub account
 this is the only way to live
 
 SSH authentication allows your local computer to be automatically linked to your GitHub account and repos
 it does this by using a key
 you can have lots of different keys for different services, not just GitHub
 if you use SSH to access a remote server, for example
-rather than log in with your username and password eahc time,
+rather than log in with your username and password each time,
 the remote server can ask your computer for the correct key
 and your computer will automatically supply it
 
@@ -45,12 +42,12 @@ ls = list info about a directory
 ~/.ssh = ~/ is your home directory, .ssh is a hidden folder where your ssh keys are stored
 
 you're looking for a public key, something like id_rsa.pub
-you can see I have on, id_ed25519 and the same thing but .pub
+you can see I have one, id_ed25519 and the same thing but .pub
 that's 1 key, and it has public and private versions
 
 there's also this known hosts file
-this is where the software services are lsited along with their ssh keys
-don't go messing aroudn with these directly ok
+this is where the software services are listed along with their ssh keys
+don't go messing around with these directly ok
 let the computer's services handle them
 
 you can see I have some already
@@ -71,6 +68,7 @@ don't use a password
 
 ok so we have a key, we need to add this key to our SSH agent
 the agent is the actual software that handles SSH requests
+When you push your changes to Git, the ssh-agent is what logs you in, using these keys
 
 start the agent by typing: eval "$(ssh-agent -s)"
 a pid means it's running
@@ -102,6 +100,6 @@ enter your password if you're prompted
 
 Now they're linked!
 
-we can text this by making a change to our repo
+we can test this by making a change to our repo
 adding, committing, and pushing that change
 and you'll note it didn't ask for my credentials

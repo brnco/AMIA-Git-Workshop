@@ -1,13 +1,17 @@
 2-3 Basic Git Commands
 
-Folks we have covered a lot of ground and this is the big stuff
+1. How to send changes to remote
+2. How to retrieve changes from remote
+3. How to branch
+
+Folks we have covered a lot of ground already
+but, this is the big stuff
 
 Here's some basic methods for Git
 
 I'm not following documentation for this, actually
 But, I am using a flavor of Arch Linux
 so the exact commands may or may not be suitable for your Windows or Mac environment
-but the doc linked above has you covered
 
 Let's go!
 
@@ -17,3 +21,83 @@ you've seen glimpses of this but we're gonna do it in depth for a moment
 You write a new script, it's its own file
 you press save in your text editor
 you give it a name
+
+Let's see what Git thinks of this new file
+
+git status
+
+Hey we have untracked files!
+Let's add them
+
+git add --all
+
+That's it, your files have been added to Git's database
+
+If we refresh Remote, though, we see that this file isn't there
+If we do git status again
+We can see that we're up to date with remote main, but we have changes staged
+
+Let's commit them
+
+git commit -m "a good message here B)"
+
+Ok they're still not on remote
+Because we need to push the changes
+
+git status = your branch is ahead of main by 1 commit
+
+Let's update main!
+
+git push origin main
+
+Asks for my info spits out some text
+now we can refresh and there's our script
+
+
+2. How to retrieve changes from remote
+
+Let's say someone updated from their branch to remote
+You won't have those changes locally
+You may not even have that branch locally
+
+Let's get that stuff!
+
+git pull
+
+That's it lol
+That's not always it, though, which we'll get into soon
+
+This is kinda revolutionary, though
+If you have two or more computers that you use to do your work
+Or, more traditionally, if you have a server that runs your code
+All you gotta do is schedule a git pull and it'll stay updated forever
+You don't have to email files back and forth
+No thumb drives
+Just pushing to and pulling from remote main
+
+
+3. How to branch
+As a reminder, branches are where you can do work and save it and commit it but it doesn't affect remote main
+This is useful if you have a big update and you want all of the changes to hit at once
+
+two methods
+
+git branch [branch name]
+git checkout [branch name]
+git status
+
+now you're on the new branch
+when it comes time to push your changes, the origin isn't main, the origin is [branch name]
+
+so we make some changes
+commit the changes and push them to remote
+look at remote main - nothing changed
+look at our branch, there's the changes
+
+to get back to main you can say
+git checkout main
+
+there's a shortcut to the above which is git checkout -b [branch name]
+and that just combines the "create branch" and "checkout that branch" commands
+
+For beginners like us, that's like 90% of using Git day-to-day

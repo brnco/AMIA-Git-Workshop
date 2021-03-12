@@ -38,9 +38,9 @@ so the exact commands may or may not be suitable for your Windows or Mac environ
 but the doc linked above has you covered
 
 1. how to create a .gitignore file
-go to your repository's local folder
+go to your repository's local folder in your file browser
 click "show hidden files"
-go into the .git folder
+go into the .git folder in terminal
 in terminal, type: touch .gitignore
 or, in your favorite text editor: open a new file and save as .gitignore
 
@@ -48,6 +48,7 @@ in this .gitgnore file, type: credentials_all.txt
 
 add, commit, and push your changes
 you should see that everything but credentials_all.txt is in your remote repo
+
 
 2. how to add a class of files to .gitignore
 .gitignore supports wildcards!
@@ -58,6 +59,7 @@ and you can do that for any filetype
 or you can exclude files in a folder with: dont_push_me/
 that's a relative path to the main repo directory
 so to exclude just a subdirectory you can use: really/dont_push_me
+
 
 3. how to remove a file that's already been tracked
 But Brendan, you're saying,
