@@ -4,13 +4,13 @@
 1. setup on GitHub
 Ok how to set up a repository
 
-This tutorial will go over the basics of setting up a repo, we'll do it in a few flavors:
+This tutorial will go over the basics of setting up a repo, in two parts:
 Setting up a repo on GitHub
 Sending a codebase you already have to GitHub
 
 for each of those, we'll do it with both the GUI and CLI
 
-As always, this tutorial follows the official GitHub documentation for this process, which is available here
+This tutorial follows the official GitHub documentation for this process, which is available here
 https://docs.github.com/en/github/getting-started-with-github/create-a-repo
 
 additionally, I'm using a flavor of Arch Linux
@@ -34,7 +34,7 @@ choose a repository visibility
 -for the rest of us, we're coding in public
 
 initialize this repository with a readme
--optional but YOU SHOUDL ALWAYS DO THIS
+-technically optional but YOU SHOULD ALWAYS DO THIS
 -AGAIN, ALWAYs
 -let the people know what you're doing, dammit
 
@@ -43,7 +43,7 @@ click create repository!
 Congrats, we have a repo!
 
 you can now clone the contents of this repo to a local folder
-or just leave it online only forever
+or just leave it online-only forever
 
 Let's clone it though!
 
