@@ -15,18 +15,18 @@ Hi Everyone, what amazing introductions from you all!
 I want to thank the Open Source Committee and the Hack Day Organizers for the chance to do this presentation
 They did a lot of work so that I didn't have to worry about anything but the presentation itself, and I just really appreciate that
 
-As they said, I'm a gardener, an increasingly serious home cook, a member of the Los Angeles Tenants Union,
+As they said, I'm a gardener, a fermentation bro, a member of the Los Angeles Tenants Union,
 and I work at the Academy's Oral History Projects department as their Sr. Archivist.
 
 I came to coding kinda late in the game,
 failed my engineering 101 class freshman year of college, where we solved problems like
 "here's an array of arrays that represents geological readings for a mountain range, using C++ find the best spots to drill for oil"
 I didn't code again for 6 years after that except for the occasional MAX/MSP nosie music thing
-doing my MSI, we had an intro to Python class with Dr. Chuck which was alright
+in library school, we had an intro to Python class with Dr. Chuck which was alright
 but I didn't think I'd use it much
 
-Cut to my first pro job and I needed to rename a hundred photos every week,
-doing that by hand wasn't fun but teaching a computer to do it was
+Cut to my first professional archives job and I needed to rename a hundred photos every week,
+doing that by hand wasn't fun but teaching a computer to do it was Really Fun
 And since then I've been trying to use code to make work easier for myself at every available instance
 
 SO, I'm not a professional coder
@@ -44,7 +44,7 @@ So, that's my specialty
 But, there's still a lot of good that you can do while being bad at coding
 And, you don't have to code at all in order to take advantage of Git and the ecosystem around it
 So, I'm giving this presentation for the non-experts amongst us
-And, I welcome input from any experts amongst us where I've misrepresented an idea,
+And, I welcome input from any experts here where I've misrepresented an idea,
 or if there's a "canonical" way of doing something that I missed
 
 

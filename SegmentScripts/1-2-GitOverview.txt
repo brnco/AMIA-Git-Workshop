@@ -38,7 +38,7 @@ Software isn't like office documents on Google Drive tho. It's maybe a bit like 
 With a PDF, you make your changes in Word or Google Docs and you export a PDF. If you messed up, you gotta re-export.
 Writing software works roughly the same way: you make changes in a text editor and render a result.
 The code isn't the end product, the code creates the end product
-End products include: a website, a transcoded video file, an optimized ad experience, etc.
+Typical end products include: a website, a transcoded video file, an optimized ad experience, etc.
 
 This is a big deal!
 Office documents have a writing style to them that's largely subjective but also ONE OF THE MOST IMPORTANT THINGS ABOUT A DOCUMENT
@@ -52,7 +52,9 @@ And, the text used to create that output can be tested, unlike "tone"
 so, you can't automatically integrate the tone on different branches into main, basically.
 the text is just too different
 There's other reasons why you wouldn't use Git for office documents
-But, for me, that's the big one.
+But, for me, that's the big one. You can't diff "tone"
+
+"Diff" is a shorthand for "difference," it's a text analysis method - give diffchecker.com a look if you're curious
 
 Anyway, to wrap up this intro,
 Git provides a framework and methods for handling versioning for software and related documentation
@@ -68,7 +70,7 @@ Git provides a framework and methods for handling versioning for software and re
 
 It does so by tracking the changes to a file.
 You tell Git to track a file and it records all the changes to it.
-It does not save different updates to files as their own documents (like in Google Docs).
+It does not save different updates to files as their own documents (like what you see in Google Docs).
 It applies changes relative to other file versions.
 
 [screenshot of a single commit]
@@ -120,15 +122,24 @@ Second, companies like Facebook pay for hosting on GitHub; in return, their code
 For free accounts, all of your code is public.
 Remember that when you put a password in your code.
 
+<<<<<<< HEAD:SegmentScripts/2-GitOverview
 [screencap of signing up for git acct or w/e]
 
 So, you sign up for a GitHub account and you link the code you're working with on your own computer to your GitHub account.
+=======
+So, you sign up for a GitHub account and
+you link the code you're working with, on your own computer, to your GitHub account.
+>>>>>>> origin:SegmentScripts/1-2-GitOverview.txt
 You own a repo, you get to decide who can do what with the code.
 
 There's also offshoots of GitHub like GitHub pages, where your repo is turned into a functioning website,
 and Gist, where you upload snippets of code (i.e. "the gist of it")
 
+There's something called GitLab which isn't related to either of these entities
+but does largely the same stuff
+
 So that's the basics of the Git ecosystem
+GitHub hosts projects that use Git
 
 
 
@@ -136,6 +147,7 @@ So that's the basics of the Git ecosystem
 4. Git, GitHub, and your personal morality
 5:00
 
+<<<<<<< HEAD:SegmentScripts/2-GitOverview
 [slides off]
 
 I want to be absolutely clear that what follows is my perspective on this and doesn't necessarily reflect the views of AMIA and of my employer.
@@ -163,49 +175,56 @@ And indeed, this incident marked something of a shift for GitHub,
 which at one time was known as the heart of the open-source community
 A community with the kind of libertarian ethos that you might expect to be upset about, idk,
 doing AI work for people who think borders are real or that breaking apart families is necessary to achieve "security"
+=======
+I had this whole story cooked up for this section but
+I think you all know enough about these tech companies
+and the people that own/ found them
+that I don't need to hold your hand through it
+>>>>>>> origin:SegmentScripts/1-2-GitOverview.txt
 
-Some of you might know Misty De Meo, who just left GitHub because of the ICE contract.
+Git was written in 1 weekend
+by the same guy who wrote Linux kernel and headed that project for 27 years, Linus Torvalds
+He stepped down from the Linux project in 2018
+in the face of increasing pressure to stop verbally abusing people in emails, forum posts, commit messages, etc.
 
-So, in short, fuck ICE and GitHub are cowards for taking that down
+Like Linux, Linus named Git after himself
+(for the Americans here, a "git" is like a jerk)
 
-But Git itself isn't free from this sort of controversy, either.
-Git was developed in a single weekend by the same guy who initially developed the Linux kernal, Linus Torvalds. The legend.
-Linux is actually named after Linus,
-I read in an interview where someone asked him "Why did you name it Git?"
-And he answered "I can't help but name things after myself I guess"
+GitHub has contracts with Immigration and Customs Enforcement
+(for the not-Americans here, ICE are like the worst people alive)
 
-And that joke would be a lot funnier if it wasn't so true.
-For Americans like myself, being a git is not a nice thing (but also not the worst), it's like being a "jerk"
+It's owned by Microsoft, who have a well-documented history of egregious behavior
+In addition to Microsoft's own AI work for ICE
 
-Linus Torvalds is maybe a bit more than a jerk, though
-In September of 2018, after 27 years leading the Linux project,
-personally approving every single line of code,
-he stepped down from his role
-He'd been using abusive language in emails and pull-request comments, and everywhere he wrote, really, for decades
+Employees are leaving both companies in protest
+It's not having any impact on shareholders
+Biden's admin recently opened a camp with cages specially designed for children....
 
 [beat]
 
-We need to bring critical eyes to the tools we employ to do our work
+Look, we need to bring critical eyes to the tools we employ to do our work
 We need to keep in mind that our work isn't just us but occurs in a context
 That context today is ecological collapse and a friendlier face of American empire
 
-So, there are alternatives to both Git and GitHub - we won't be discussing them here
-I use both of these services, and the text editor Atom, also owned by GitHub/ MS,
-And I run Manjaro/ Arch Linux on my personal computer and love it
-and that says a lot more about me than the rest of the words I'm about to say in this section
+There are alternatives to both Git and GitHub - we won't really be discussing them here
+I continue use both of these software services, and the text editor Atom, also owned by GitHub/ Microsoft
+And I run Manjaro/ Arch Linux on my personal computer
+That's maybe a more important statement than anything that's about to follow
 
 I do want to put it out there, though,
 that while it's important to have a critical framework for your work
-Your work is not something you have a lot of control over
+Your work is not something you have a lot of control over, in the scheme of things
 We're all compelled to work under capitalism, after all
 
-capitalism needs abuse and exploitation in order to even exist
+And, capitalism needs abuse and exploitation in order to even exist, in the first place
 
-The events described above are symptomatic of the conditions that gave rise to them
+The actions of Torvalds and Microsoft and ICE are symptomatic of the conditions that enabled them
 If it bugs you, find a way to fight those conditions that connects with you
 I got the tenants union stuff
 maybe you're into community kitchens or cyberbullying the mayor or just donating to whomever needs it
-IMO those kind of things are much more impactful than not using a particular software service
+In my opinion,
+those kind of things are much more impactful than using/ not using a particular software service
+But maybe not using tools with that kind of history is that important to you
 
-So, that's my bit on the ethics of this software ecosystem
+Anyway, that's my bit on the ethics of this software ecosystem
 Now you know and you can make informed decisions

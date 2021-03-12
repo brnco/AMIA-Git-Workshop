@@ -1,0 +1,105 @@
+2-3 How to Use SSH Authentication
+
+Intro
+Folks, GitHub is ending it's support for basic HTML authentication
+That means that soon, sometime, who knows when really,
+you won't be able to push your changes by logging into GitHub on the CLI
+as you've seen me do in this presentation
+You'll have to use SSH
+
+SSH is more secure, is the real reason they're doing it
+But also, if you have more than 1 GitHub account
+this is the only way to live
+
+SSH authentication allows your local computer to be automatically linked to your GitHub account and repos
+it does this by using a key
+you can have lots of different keys for different services, not just GitHub
+if you use SSH to access a remote server, for example
+rather than log in with your username and password each time,
+the remote server can ask your computer for the correct key
+and your computer will automatically supply it
+
+Lets do this for GitHub!
+
+As always, I'm following the official GitHub documentation for this, available here:
+https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
+additionally, I'm using a flavor of Arch Linux
+so the exact commands may or may not be suitable for your Windows or Mac environment
+but the doc linked above has you covered
+
+
+
+1. check your ssh keys
+your computer might already have ssh keys
+let's find them
+
+open terminal
+in any directory, type ls -la ~/.ssh
+that means:
+ls = list info about a directory
+-la = a=all, l=long format
+~/.ssh = ~/ is your home directory, .ssh is a hidden folder where your ssh keys are stored
+
+you're looking for a public key, something like id_rsa.pub
+you can see I have one, id_ed25519 and the same thing but .pub
+that's 1 key, and it has public and private versions
+
+there's also this known hosts file
+this is where the software services are listed along with their ssh keys
+don't go messing around with these directly ok
+let the computer's services handle them
+
+you can see I have some already
+which I could link
+but, we're gonna make new ones anyway
+
+
+
+2. make a new ssh key
+
+in terminal
+type: ssh-keygen -t ed25519 -C "your_email@example.com"
+replace the your_email bit with your github login
+save in the default location
+don't use a password
+
+3. add the new SSH key to your ssh agent
+
+ok so we have a key, we need to add this key to our SSH agent
+the agent is the actual software that handles SSH requests
+When you push your changes to Git, the ssh-agent is what logs you in, using these keys
+
+start the agent by typing: eval "$(ssh-agent -s)"
+a pid means it's running
+
+add the new key: ssh-add ~/.ssh/id_ed25519
+if you saved it in a different location, you'll use that path instead of the default
+
+
+
+4. add the new SSH key to your account
+copy the SSH public key to your clipboard
+the doc gives a couple of examples
+here's a cross-platform way:
+find the file in the hidden ssh folder on your computer
+open it in your favorite text editor (or use cat)
+ctrl + c
+
+on GitHub, go to your account
+In the upper-right, select settings
+go to SSH and GPG keys
+select Add a new SSH key
+
+give it a good name!
+cannot stress this enough, include your computer's name if you can
+paste your key into the key field
+
+click Add SSH key
+enter your password if you're prompted
+
+Now they're linked!
+
+we can test this by making a change to our repo
+adding, committing, and pushing that change
+and you'll note it didn't ask for my credentials

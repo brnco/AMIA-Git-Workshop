@@ -25,9 +25,9 @@ Repository - repo for shorthand.
 Repos are both the file and folder structure of the code and also the changes, the users, the comments on a commit, etc.
 -There are two kinds of repositories, local and remote.
 Local is code on your computer that you're using right now.
-Remote is the code on GitHub (or similar). You don't need a remote repo to run Git.
-
-[commit definition]
+Remote is the code on GitHub (or similar).
+You don't need a remote repo to run Git.
+You don't need a local repo to use GitHub.
 
 Commit
 A commit is a set of changes to one or more files.
@@ -36,9 +36,14 @@ You can restore old commits.
 You can apply one commit at a time or lots of them at once.
 You can comment on commits.
 
+<<<<<<< HEAD:SegmentScripts/3-GitFramework.txt
 [push pull definition]
 
 "Pull" is another important Git term and it means to retrieve code from somewhere else and integrate it into the existing code.
+=======
+"Pull" is another important Git term
+and it means to retrieve code from somewhere else and integrate it into the existing code.
+>>>>>>> origin:SegmentScripts/1-3-GitFramework.txt
 That "somewhere else" can be the remote repo or another repo entirely
 
 Pull of course is the opposite of push
@@ -49,16 +54,19 @@ And, you pull from something
 
 Ok let's get into some workflows
 
+<<<<<<< HEAD:SegmentScripts/3-GitFramework.txt
 [branch diagram]
 
+=======
+>>>>>>> origin:SegmentScripts/1-3-GitFramework.txt
 Branches
 Here's a very important diagram about Git (branch diagram)
 When you're doing your work, writing code, making updates, you're working on a "branch" of your codebase
 Branches help distinguish between coders, or between coding tasks
 You might have a branch "New Feature" or "Brendan's updates"
 Every repo has a branch named "main" -
-renamed from the previous default "master" which is a change everyone like me was definitely asking for
-and we're all glad they prioritized that above ending their ICE contracts
+the default used to be named "master" and they changed it last summer
+and I know we're all glad they prioritized that above ending their ICE contracts, we can tell they're Very Serious
 
 Anyway, you can make changes to one branch and they don't affect the other branches
 So any updates I make to Brendan's Fantastic Branch are separate from the code on main
@@ -95,11 +103,13 @@ Remote is where others go to use or modify code that you wrote.
 Remote protects against corruption to your local hard drive.
 
 So, you make your changes locally, you test that they work, you send them to your remote repo
-People with access to your remote repo can then change the code you wrote and send it back to you and you can integrate the changes
-You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes
+People with access to your remote repo can then change the code you wrote and send it back to you and you can integrate their changes
+You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes with emojis, etc.
 
 I'm going to pause for questions now because this is where it starts to get really complicated
 But, after this next section, we'll do the tutorials and maybe some things will become more clear, too
+
+So, if your head is swirling with verbiage, let's discuss it
 
 
 [5 mins?]
@@ -114,11 +124,16 @@ So, how does Git actually know about changes to a file?
 You have to tell it!
 When you initialize a repo, you generate a .git folder in your repository
 It's normally hidden, but this is how Git knows what's going on in your repo
-If you remove or mess with this folder, bad things tend to happen
+If you remove this folder, it'll stop tracking your stuff
+If you mess with too much you'll wreck your repo
 
+<<<<<<< HEAD:SegmentScripts/3-GitFramework.txt
 [object database diagram]
 
 Git's data is stored in an object database
+=======
+Git's data is stored in an object database in the .git folder
+>>>>>>> origin:SegmentScripts/1-3-GitFramework.txt
 This object database is basically its own filesystem
 It's optimized for software version control
 There are three objects in the database that we need to concern ourselves with: blobs, trees, and commits
@@ -128,20 +143,28 @@ There are three objects in the database that we need to concern ourselves with: 
 Blobs are the file data, but not the files themselves
 Blobs contain the sha1 hash of a file, not the filename
 Blobs contain only the headers and data chunk(s) of files, not their info from the OS's file allocation table (or whatever)
-Git is content-addressable, which means that each file is not necessarily it's own thing in Git, but each package of unique data is
-Imagine if a txt file and a docx file could be compared to each other for just the text contained in them, without any formatting
-That's the kind of thing that Git is doing under the hood, for files
 
-Stick with me here
+Git is content-addressable, which means that
+each file is not necessarily it's own thing in Git, but each package of unique data is
+Your filesystem on your personal computer is location-addressable
+Somewhere there's a database of file paths
+If you move a file, the database updates that a new file is in the new location and the old file doesn't exist
+If you move a file in your Git repo,
+the database updates that the same content is available in a new location
+It knows it's not a "new" file, it has the same content as the old one
 
+<<<<<<< HEAD:SegmentScripts/3-GitFramework.txt
 [tree diagram]
 
 Those blobs are then organized into tree objects, which more directly correspond to the file/folder structure of the repo
+=======
+That change is registered in something called a tree object
+>>>>>>> origin:SegmentScripts/1-3-GitFramework.txt
 The tree is basically how Git moves between its object database and the filesystem on your machine
 Tree objects are lists
 and they're composed of tuples containing a filename, a file type, and a hash
 Trees are where you branch info lives
-Trees refer back to blob objects
+Trees refer back to blob objects via the hash
 
 [commit diagram]
 
@@ -149,7 +172,8 @@ The trees are then organized into commits
 A commit, again, is a set of changes to one or more files
 A commit also contains a message describing what those changes are, written by you, the user
 
-It's important to note that the filename and file content and integration of file changes are separated from each other here
+So, the filename, file content, and integration of file changes
+are separated from each other in Git
 If you change a filename in your repo, that change is tracked on the tree level - ALL OF YOUR BLOBS REMAIN THE SAME
 If you don't commit your changes, your repo doesn't get updated, even though you pressed Ctrl+S in your text editor
 
@@ -157,7 +181,7 @@ Because there is redundancy on the content-level and the file/folder level,
 and those changes are rolled into a single object called a "commit"
 The system is very robust. It's very, very difficult to change something and have it unintentionally missed by Git
 
-The way this is managed on the user end is through the following three commands
+The way this is managed on the user end is through the following commands
 
 [just this same below text on screen]
 
@@ -170,6 +194,20 @@ And package them into an update
 
 git push
 send all of the changes/ commits you made locally to the remote repository, so others can have the most up-to-date version of your code
+
+git fetch
+retrieve the changes in remote and stage them on local
+your local code isn't updated when you fetch!
+
+git pull
+retrieve the changes in remote and apply them to local
+your local code is updated when you pull
+
+git branch
+create a new branch in your repo
+
+git checkout
+switch to the new branch
 
 This diagram says it better than I ever could
 
@@ -203,7 +241,7 @@ This becomes very important in a situation where you have multiple people in mul
 who all need to work on the same file/ set of files and you need to track who's worked on it when
 You know, like in quarantine
 
-Remember the essentials of the local-remote repository relationship:
+Let's remember the essentials of the local-remote repository relationship:
 There is 1 stable version that is broadly accessible
 Everyone involved agrees on where it is
 Everyone agrees on the methods required to update it
@@ -211,7 +249,7 @@ Everyone involved knows that this 1 stable version may not be "done"
 may not be everything we all want
 but, it's the best we have right now
 
-If you have all of those elements in place, you can do something Git-like
+If you have all of those elements in place, you can do something Git-like/ GitHub-like (or maybe svn-like)
 
 I'll walk through an example from my own work: transcripts
 
@@ -223,33 +261,28 @@ And, crucially, they need to be in a format that's broadly readable and shareabl
 So, I set up an attachment field in Airtable
 It's called "current transcript"
 It contains the most up-to-date transcript
-Everyone can look there first, if they need a transcript
+These are the transcripts that we are comfortable sharing with people
+Because they're the best version we have now.
 
-Everyone in the department has transcript versions which aren't on Airtable
-Earlier versions, before something was edited out
-Curatorial versions where segments are highlighted
-Those versions are also spread across a series of RAIDs and networked drives, in addition to our individual computers
-
-When we need a transcript though, we don't need those arcane versions
-We usually need the best version, or at least the best version we have now
-that that version is on Airtable
-The version on Airtable may not exist anywhere else, but that's okay
+They're not "done" and you can't see every version we have on the shared drive
+but you can see the best one we have now
 
 So, this Airtable field is like remote main
-It doesn't matter what you have locally, it doesn't matter what's on a shared drive that you can get through the VPN
-The best version is on remote main
-If you need to dig deeper, you can
+And everyone has their own versions and structure on their local machines
+Like their own branches or repos
 
-It's this agreement between people, and the documentation that supports it, that makes the system work
+So, an agreement between people, and the documentation that supports it, that makes the system work
 It doesn't have to be technical
 The reason Git is so powerful isn't just because it's well thought out, as a system, but also because everyone has kind of agreed to use it
 We've agreed to
  keep discussion of the code to the commit comments and wiki
  the branch structure for large and small updates
  the circumstances necessary to release a new version
-We've agreed to use Git, essentially
+ abide by the Code of Conduct
+Those agreements are what it means to use Git and GitHub, basically
 
 That kind of consensus is achievable in small teams without using Git, though
 And, if you set up a remote space where 1 single "best, right now" version of a document lives,
-and for us it's helpful to have good filenames, but not essential,
-you can take advantage of the distributed team setup without as much of the headache of versioning
+you can do something Git/ GitHub like
+And, by simplifying the process of deciding "which transcript version do I need?"
+you can more easily leverage the advantages of a distributed team setup
