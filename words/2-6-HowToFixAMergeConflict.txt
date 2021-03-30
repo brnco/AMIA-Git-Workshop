@@ -1,0 +1,56 @@
+2-6 How to fix a merge conflict
+
+Folks,
+Conflict is inevitable
+It doesn't even happen in spite of anything
+Conflict isn't a failure of management or personal styles
+Conflict just is
+
+it's taken years of therapy to get me to this point
+and to be honest I'm still not there with lots of interpersonal issues
+But, I am there with Git
+
+Because, if you work with Git you will get merge conflicts
+
+a merge conflict happens when separate changes to the same file
+are too dissimilar to resolve automatically
+It requires a human touch to fix it
+
+This can happen for lots of reasons
+It's more common when pulling changes from another repo than when working with your own stuff
+But sometimes you change files in separate branches or on separate machines
+and when you try to update everything, those changes need extra love to get resolved
+
+Let's make a merge conflict and fix it!
+
+This tutorial follows the official GitHub documentation for this process, which is available here
+https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts
+
+additionally, I'm using a flavor of Arch Linux
+so the exact commands may or may not be suitable for your Windows or Mac environment
+but the docs linked above have you covered
+
+1. Let's make a merge conflict
+Here's our README.md on local
+We're gonna make some changes here
+and commit them
+
+Here's our README.md on remote main
+we're gonna make some changes there
+and commit them
+
+Now, let's pull the changes from remote to local
+Automatic merge failed; fix conflicts and then commit the result
+
+
+2. new easy way to fix a local merge conflict
+
+git mergetool
+
+Git made this command that links together a few toher bits of open-source software
+and it looks like this after you configure it
+
+the top-left is the local file on the current branch
+the top-middle is the base, the common ancestor
+the file on the right is the file you are merging into your branch
+the bottom is the result

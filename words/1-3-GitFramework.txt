@@ -1,0 +1,273 @@
+Git framework
+25 minutes - live
+-Overview
+--branches, file states, relationships
+--tracking changes
+-Automations vs Manual versioning
+-How to apply a Git-like framework to office documents
+-Questions
+
+1. Overview
+5:00
+
+Ok, so we know now that Git and GitHub are optimized for code,
+We know that Git only tracks the changes to files, not different versions of whole files like you might rename v1.docx, v2.docx, etc.
+We know that other people can get a look at your code on GitHub and download it there and suggest changes
+Let's get a little more in depth with each of these ideas
+
+We'll start with a Glossary
+Repository - repo for shorthand.
+Repos are both the file and folder structure of the code and also the changes, the users, the comments on a commit, etc.
+-There are two kinds of repositories, local and remote.
+Local is code on your computer that you're using right now.
+Remote is the code on GitHub (or similar).
+You don't need a remote repo to run Git.
+You don't need a local repo to use GitHub.
+
+Commit
+A commit is a set of changes to one or more files.
+commits are how you assemble all the changes you've made to your work.
+You can restore old commits.
+You can apply one commit at a time or lots of them at once.
+You can comment on commits.
+
+"Pull" is another important Git term
+and it means to retrieve code from somewhere else and integrate it into the existing code.
+That "somewhere else" can be the remote repo or another repo entirely
+
+Pull of course is the opposite of push
+"Pushing" changes in Git means to send the changes to another repo (could be remote, could be someone else's repo)
+
+So, you push to something
+And, you pull from something
+
+Ok let's get into some workflows
+
+Branches
+Here's a very important diagram about Git (branch diagram)
+When you're doing your work, writing code, making updates, you're working on a "branch" of your codebase
+Branches help distinguish between coders, or between coding tasks
+You might have a branch "New Feature" or "Brendan's updates"
+Every repo has a branch named "main" -
+the default used to be named "master" and they changed it last summer
+and I know we're all glad they prioritized that above ending their ICE contracts, we can tell they're Very Serious about this stuff
+
+Anyway, you can make changes to one branch and they don't affect the other branches
+So any updates I make to Brendan's Fantastic Branch are separate from the code on main
+They carry the same filenames and folder structure unless I change them,
+there's no _BC in a filename to distinguish that I worked on it
+although that information is logged in a commit
+
+Ok, moving between branches
+We say that you "checkout" code from Branch A to Branch B
+To bring those changes back from Branch B to Branch A, we call that a "merge"
+
+You can have lots and lots of different branches, they all refer back to the point where they were checked out from main
+And, when you merge them back into main, the changes are automatically integrated into the code, if possible
+So, two people can make updates to the same file and,
+as long as those changes don't conflict with each other,
+they're automatically integrated
+
+We'll get to what happens when those changes do conflict later
+
+So, you might notice that there's a really important relationship
+between a remote repository and a local repository.
+They are linked but they are not the same.
+
+The remote repo is where the best code is
+The most up to date, most usable and refined code, everyone knows it's there in remote main.
+That's like, what it means to use Git and GitHub - there's a remote main where the best work ends up
+There's a code of conduct in the remote repo that everyone abides by.
+There's a license in the remote repo that people can refer back to when deploying your code for themselves.
+Remote is where others go to use or modify code that you wrote.
+Remote protects against corruption to your local hard drive.
+
+So, you make your changes locally, you test that they work, you send them to your remote repo
+People with access to your remote repo can then change the code you wrote and send it back to you and you can integrate their changes
+You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes with emojis, etc.
+
+I'm going to pause for questions now because this is where it starts to get really complicated
+But, after this next section, we'll do the tutorials and maybe some things will become more clear, too
+
+So, if your head is swirling with verbiage, let's discuss it
+
+
+[5 mins?]
+
+
+File states
+4:30
+
+So, how does Git actually know about changes to a file?
+You have to tell it!
+When you initialize a repo, you generate a .git folder in your repository
+It's normally hidden, but this is how Git knows what's going on in your repo
+If you remove this folder, it'll stop tracking your stuff
+If you mess with it too much you'll wreck your repo
+
+Git's data is stored in an object database in the .git folder
+This object database is basically its own special filesystem
+There are three objects in the database that we need to concern ourselves with: blobs, trees, and commits
+
+Blobs are the file data, but not the files themselves
+Blobs contain the sha1 hash of a file's content, not the filename
+Blobs contain only the headers and data chunk(s) of files, not their info from the OS's file allocation table (or whatever)
+
+Git is content-addressable, which means that
+each file is not necessarily it's own thing in Git, but each package of unique data is
+Your filesystem on your personal computer is location-addressable
+Somewhere there's a database of file paths
+If you move a file, the database updates that a new file is in the new location and the old file doesn't exist
+If you move a file in your Git repo,
+the database updates that the same content is available in a new location
+Git knows it's not a "new" file, it has the same content as the old one
+
+That change is registered in something called a tree object
+The tree is how Git moves between its object database and the filesystem on your machine
+Tree objects are lists
+and they're composed of tuples containing a filename, a file type, and a hash
+Trees are where you branch info lives
+Trees refer back to blob objects via the hash
+
+So, each bit of file content is hashed
+and those hashes, not the filenames, are the main reference Git uses to track your project
+
+The trees are then organized into commits
+A commit, again, is a set of changes to file content or repo structure
+A commit also contains a message describing what those changes are, written by you, the user
+
+So, the filename, file content, and integration of content changes
+are separated from each other in Git
+If you change a filename in your repo, that change is tracked on the tree level - ALL OF YOUR BLOBS REMAIN THE SAME
+If you don't commit your changes, your repo doesn't get updated, even though you pressed Ctrl+S in your text editor
+
+Because there is redundancy on the content-level and the file/folder level,
+and those changes are rolled into a single object called a "commit"
+The system is very robust. It's very, very difficult to change something and have it unintentionally missed by Git
+
+The way this is all managed on the user end is through the following commands
+
+git add
+this tells Git to search the repo and add any content changes to its objects database
+
+git commit
+this tells git to bundle all the file content changes, all the filename and folder structure data, and various timestamps and admin info (like your acct)
+And package them into an update
+
+git push
+send all of the changes/ commits you made locally to the remote repository, so others can have the most up-to-date version of your code
+
+git fetch
+retrieve the changes in remote and stage them on local
+your local code isn't updated when you fetch!
+but your local repo is updated
+
+git pull
+retrieve the changes from elsewhere and apply them to your code
+elsewhere can be remote or it can be another repository
+your code is updated when you pull
+
+git branch
+create a new branch in your repo
+
+git checkout
+switch to the new branch
+
+This diagram says it better than I ever could
+
+
+Versioning
+5:00
+
+You might have made code that looks like index.html and index.html.bak - where you have an old version in case you mess something up
+As mentioned, Git doesn't save things like this
+
+There are v1, v2, vN for the entire repository though
+Those are called releases
+You may be familiar with updating Firefox to the latest version, and it has a long string of numbers 60.2.37.244
+That's the release number
+the release info refers to your entire repo, not an individual file
+There's really no "version" of a file in Git, just its latest commit
+I'm gonna keep repeating this kind of thing for the whole workshop so it sinks in
+
+
+2. Modeling Git for non-code documents
+You may now be realizing that
+there are significant barriers to using Git with your office documents
+I have a how-to in part II about actually using Git with docx files so stick around to see it
+
+I think it's helpful here to look at what we're trying to do in offices, as we manage documents
+
+Most office documents are one-offs
+You and your team write it up and send it on and, best case,
+you have a meeting about it later
+
+You're usually writing a document from scratch, or from a template
+The most persistent documents are basically workflow documentation
+Your stats and lists about your collections
+Are probably better served by exporting/ rendering from a database
+
+You would want to use Git if:
+you have a document that you want everyone to work on asynchronously,
+working on "together" but on their own time
+that document already exists and you're mostly just making some updates
+and, you want to review everyone's proposed changes separately from each other
+in the most granular way imaginable
+before integrating them into the update
+
+There's not a ton of document types that benefit from the Git technical overhead
+when you can just talk about it?
+Like yeah everyone could have their own branch and you could track like
+who added what phrase
+but why do you need to?
+
+The real problem is that our shared drives are a huge mess
+and it can be tough to know which document version
+is "The Best"
+because when you need a document, the most recent version may not be the best
+and if you know that, it's fine, but otherwise you likely just want the best version
+
+And that's where the local <-> remote model can help
+
+Let's remember some of the essentials of the local-remote repository relationship:
+There is 1 stable version that is broadly accessible
+Everyone involved agrees on where it is
+Everyone agrees on the methods required to update it
+Everyone involved knows that this 1 stable version may not be "done"
+may not be everything we all want
+but, it's the best we have right now
+
+If you have all of those elements in place, you can do something GitHub-like
+it's really more like SubVersion, which is a more centralized model
+because offices tend to be very centralized
+a true Git model would mean everyone has their own copy of the shared drive
+which is the stuff of nightmares
+
+In my department, the document in an Airtable attachment field is the best version
+Those documents are mirrored on our shared drive, which has every version
+Transcripts are the best example here
+We may only have a raw transcript for an interview, if it hasn't been audit-edited yet
+It doesn't matter how far along in the workflow it is, though
+if we need to find clips from that interview, it'll do
+as long as we know it's the best we have
+
+So, these Airtable attachment fields are like remote main
+And everyone has their own versions and structure on their local machines
+Like their own branches or repos
+
+Something that Git solved rather uniquely was ensuring that everyone has access to the most up-to-date version of the code
+No one wants to work on an out-of-date version of a document
+My suggestion is to make a centralized, single point of reference for the best version of a document
+And lean into the mess of old versions on the shared drive
+
+So, an agreement between people, the labor of maintaining and updating that field in a database,
+and the documentation that supports it, that makes the system work
+It doesn't have to be technical
+The reason Git is so powerful isn't just because it's well thought out, as a system,
+but also because everyone has kind of agreed to use it
+
+That kind of consensus is achievable in small teams without using Git, though
+And, if you set up a remote space where 1 single "best, right now" version of a document lives,
+you can do something Git/ GitHub like
+And, by simplifying the process of deciding "which document version do I need?"
+you can more easily leverage the advantages of a distributed team setup

@@ -1,0 +1,89 @@
+2-2 How To Set Up a Repo
+5:00
+
+1. setup on GitHub
+Ok how to set up a repository
+
+This tutorial will go over the basics of setting up a repo, in two parts:
+Setting up a repo on GitHub
+Sending a codebase you already have to GitHub
+
+for each of those, we'll do it with both the GUI and CLI
+
+This tutorial follows the official GitHub documentation for this process, which is available here
+https://docs.github.com/en/github/getting-started-with-github/create-a-repo
+
+additionally, I'm using a flavor of Arch Linux
+so the exact commands may or may not be suitable for your Windows or Mac environment
+but the doc linked above has you covered
+
+Ok, so you've got your GitHub account set up already, you're logged in
+
+Go to github.com
+in the upper-right corner, you'll see a plus sign -> click it!
+
+give your repo a name
+-pick a good one because this is how everyone will refer to your code
+
+give your repository a description
+-I know we don't have a ton of time but
+-the more info you fill out now the more clear this is later
+
+choose a repository visibility
+-if you have a paid account you have the ability to make your repo private
+-for the rest of us, we're coding in public
+
+initialize this repository with a readme
+-technically optional but YOU SHOULD ALWAYS DO THIS
+-AGAIN, ALWAYs
+-let the people know what you're doing, dammit
+
+click create repository!
+
+Congrats, we have a repo!
+
+you can now clone the contents of this repo to a local folder
+or just leave it online-only forever
+
+Let's clone it though!
+
+2. How to clone a repo
+2.a. CLI
+
+navigate to your repo's main page
+
+On the right there's a little box, download code
+you have the option of downloading a zip file, with all the contents
+you would choose that if you don't want your local repo linked to the remote
+
+we don't want that though, so what we're gonna do is select this url here
+
+in your CLI
+navigate to the parent folder where you want to save this repo
+I have a folder called "devs" in my home folder where I do everything
+type: git clone [paste url]
+
+the CLI will spit out some text about what's going on and if everything is gravy,
+you'll see this folder appear in your file manager
+
+congrats, you now have a remote and local repo and they're linked!
+
+2.b.
+here are the same steps in the GitHub Desktop Gui
+[still gotta do this]
+
+
+3. how to make a repo when you already have code
+
+One last little demo
+I'm always writing code first and setting up my repos later
+So, here's a workaround for how to set up a repo where you already have code
+
+first, in the folder where your code lives
+rename that folder, -tmp or -bak works great here
+
+second, follow all the directions I just gave you for setting up a repo and clone it locally
+
+third, move all your code back into the empty local repo folder
+
+lastly, add, commit, and push your changes (more in a minute)
