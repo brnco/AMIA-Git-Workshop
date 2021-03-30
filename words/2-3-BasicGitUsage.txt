@@ -10,8 +10,7 @@ but, this is the big stuff
 Here's some basic methods for Git
 
 I'm not following documentation for this, actually
-But, I am using a flavor of Arch Linux
-so the exact commands may or may not be suitable for your Windows or Mac environment
+But any intro to git video on YouTube is gonna have this info
 
 Let's go!
 

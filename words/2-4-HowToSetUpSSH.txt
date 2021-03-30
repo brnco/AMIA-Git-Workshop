@@ -1,11 +1,11 @@
 2-3 How to Use SSH Authentication
 
 Intro
-Folks, GitHub is ending it's support for basic HTML authentication
-That means that soon, sometime, who knows when really,
-you won't be able to push your changes by logging into GitHub on the CLI
-as you've seen me do in this presentation
-You'll have to use SSH
+Folks, GitHub is ending its support for basic HTML authentication
+When I push to remote, you've seen it just do it
+In the past, there's been prompts to enter your username and GitHub password
+in order to push
+But you can't do that anymore, you have to set up SSH
 
 SSH is more secure, is the real reason they're doing it
 But also, if you have more than 1 GitHub account
@@ -23,10 +23,6 @@ Lets do this for GitHub!
 
 As always, I'm following the official GitHub documentation for this, available here:
 https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
-
-additionally, I'm using a flavor of Arch Linux
-so the exact commands may or may not be suitable for your Windows or Mac environment
-but the doc linked above has you covered
 
 
 

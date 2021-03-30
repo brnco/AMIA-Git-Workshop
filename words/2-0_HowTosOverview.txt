@@ -1,0 +1,31 @@
+2-0 background for the How To's
+
+Ok everyone, for these tutorials there's a few things you gotta know
+I'm exclusively using the command line for Git
+I'm doing this for two reasons
+1) it's how I use Git and what I'm familiar with
+2) I want to make the command line less scary
+
+Because, if you get into this kind of work, you will have to use the command line
+It's not so bad
+
+There are Git GUI's available for every platform
+Dozens of them, it seems
+If anyone has recommendations for Git GUI's, please put them int he chat
+Maybe we can get back to that at the end of the presentation
+
+Next, I'm using a flavor of Arch Linux called Manjaro
+Which I've added a bunch of stuff to to make my life easier
+Namely, Powerline, which integrates with Git
+and displays info about the git and command status
+
+On Mac, lots of this is the same
+On Windows, well, the git commands are the same at least
+
+Each tutorial will link to the GitHub documentation for the relevant topic
+And those docs have you covered
+
+Lastly, there's no shame in looking up every little thing!
+Stack Overflow wrote most of this presentation, when you get down to it
+When you forget stuff, just look it up, don't get down on yourself about it
+It's confusing because it's new and because it's complicated, so

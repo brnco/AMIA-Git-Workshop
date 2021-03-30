@@ -33,9 +33,7 @@ but, you manage this file manually, so that's ok usually
 As always, I'm following the official GitHub documentation for this, available here:
 https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
-additionally, I'm using a flavor of Arch Linux
-so the exact commands may or may not be suitable for your Windows or Mac environment
-but the doc linked above has you covered
+
 
 1. how to create a .gitignore file
 go to your repository's local folder in your file browser

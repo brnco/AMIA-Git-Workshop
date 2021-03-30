@@ -1,0 +1,73 @@
+3-1-DosAndDonts
+
+Ok we have been through the absolute ringer here!
+
+1. Code of Conduct
+A code of Conduct is a mechanism to communicate expectations of people's behavior
+And to hold them accountable WHEN those expectations aren't met
+
+It's policy! And I know we all love policy development but it's really important
+GitHub provides some templates which you can see here
+https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project
+
+They're not bad! They're certainly better than nothing.
+If you don't set this policy, it's so much more difficult to deal with it later
+
+
+
+2. License
+A License is like a CoC for the code itself
+It communicates the expectations for use of the code
+and provides a mechanism to hold people accountable for misuse
+
+GitHub has a bunch of templates, viewable at this link
+https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
+
+Importantly, if you're doing work for your employer
+Your employer may have a policy as to how your work is licensed
+When I was at UCSB and wanted to make a public fork of my code
+I had to use their BSD License (stands for Berkeley Standard Distribution)
+
+You can also put things in the license like "Free and open to everyone except ICE"
+And that on its own a fine license for lots of things
+
+
+
+3. Commit Messages
+Ahh man we're all so guilty here
+When you commit, the more info you put in the message, the better
+Treat it like a filename - it takes mere seconds to make a good one
+And, you'll thank yourself later
+
+Here's an example of what I mean
+Most of these iPhone app updates are just "improvements and bug fixes"
+But check out Mint - trying to sell me a mortgage
+Is that a good commit message? Maybe not
+But it does demonstrate how you can use this kind of metadata
+
+Two style notes:
+1) You can put emojis in your commit messages
+2) commit messages should be in the present tense
+
+This is confusing because as you commit, the changes are past tense to yourself
+You've already made the changes
+But, from the perspective of your remote repo, these changes are the future
+
+Commits should be read as the changes applied to the current code base
+So, if someone wanted to know what your changes do
+They "add functionality" or "fix issue 229"
+And that's how you should write them, technically
+Everyone ends up using past tense anyway, it's fine
+
+
+
+4. Push at eod, pull at sod
+This is less important if you're a lone coder
+But, if you're working with a team
+At the start of every day, run git pull
+That ensures you'll get the latest changes everyday
+If you get too far behind remote-main, you'll get into trouble later on
+
+Similarly, at the end of the day, push your changes
+Even if they're in-progress
+Give others on your team the ability to get the latest version

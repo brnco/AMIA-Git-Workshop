@@ -8,14 +8,8 @@ This tutorial will go over the basics of setting up a repo, in two parts:
 Setting up a repo on GitHub
 Sending a codebase you already have to GitHub
 
-for each of those, we'll do it with both the GUI and CLI
-
 This tutorial follows the official GitHub documentation for this process, which is available here
 https://docs.github.com/en/github/getting-started-with-github/create-a-repo
-
-additionally, I'm using a flavor of Arch Linux
-so the exact commands may or may not be suitable for your Windows or Mac environment
-but the doc linked above has you covered
 
 Ok, so you've got your GitHub account set up already, you're logged in
 
@@ -68,9 +62,6 @@ you'll see this folder appear in your file manager
 
 congrats, you now have a remote and local repo and they're linked!
 
-2.b.
-here are the same steps in the GitHub Desktop Gui
-[still gotta do this]
 
 
 3. how to make a repo when you already have code
@@ -80,10 +71,13 @@ I'm always writing code first and setting up my repos later
 So, here's a workaround for how to set up a repo where you already have code
 
 first, in the folder where your code lives
-rename that folder, -tmp or -bak works great here
+type git init
 
-second, follow all the directions I just gave you for setting up a repo and clone it locally
+second, follow all the directions I just gave you for setting up a repo
+Except we're not going to clone it
+copy the link that clones it
 
-third, move all your code back into the empty local repo folder
+back in the command line type
+git remote add origin [paste link]
 
 lastly, add, commit, and push your changes (more in a minute)
