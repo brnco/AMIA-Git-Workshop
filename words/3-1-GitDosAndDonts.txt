@@ -46,7 +46,7 @@ Is that a good commit message? Maybe not
 But it does demonstrate how you can use this kind of metadata
 
 Two style notes:
-1) You can put emojis in your commit messages
+1) You can put emojis in your commit messages - here's some suggestions
 2) commit messages should be in the present tense
 
 This is confusing because as you commit, the changes are past tense to yourself
