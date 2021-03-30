@@ -198,7 +198,7 @@
 						cannot stress enough how public this code is</br>
 						please tell people how to deal with it
 					</section>
-					<section>
+					<section id="License">
 					</br><h3>License</h3>
 					<iframe src="https://docs.github.com/en/github/building-a-strong-community/adding-a-license-to-a-repository">
 					</iframe>
@@ -218,7 +218,10 @@
 				</section>
 			</div>
 		</div>
-
+		<script>
+		var ghLicenseFrame = document.createElement("iframe");
+		ghLicenseFrame.src = "data:text/html;base64,aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZ2l0aHViL2J1aWxkaW5nLWEtc3Ryb25nLWNvbW11bml0eS9hZGRpbmctYS1saWNlbnNlLXRvLWEtcmVwb3NpdG9yeQ=="
+		document.getElementById("License").appendChild(ghLicenseFrame);
 		<script src="reveal.js/dist/reveal.js"></script>
 		<script src="reveal.js/plugin/notes/notes.js"></script>
 		<script src="reveal.js/plugin/markdown/markdown.js"></script>
