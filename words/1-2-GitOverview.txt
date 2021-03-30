@@ -24,36 +24,47 @@ The big thing that Git did relative to its precursors was
 to allow each individual coder to have the full version of the code on their own machine
 Rather than everyone making changes directly to the main code base
 Coders copy the code base and make their changes locally
-then those changes are integrated into the main base
+Those changes are later integrated into the main base
 
-I do want to spend a moment here to talk about the nature of code and how it differs from office documents
-Because, if you haven't worked with code, it's not obvious why you wouldn't use Git to write your monthly reports
+I'm going to repeat that because it's super important
+with the Git ecosystem, everyone working on a project has their own version of that project
+It's entirely separate from the main version, although the two are linked
+Coders make their changes to their version of the code
+Then those changes are merged with the main code base
 
-the real reason is a social-technical one: the structure of docx files is such that running Git on them is hard
-When combined with the learning curve for git, it's just not feasible to use it in most office settings
+When coders talk about "distributed," that means more than "we're not all in the office"
+It means that every single person has their own fully self-contained version of the code
 
-I think the framework of Git doesn't lend itself to offices either, which tend to be very centralized
+For that reason, and for others that I'll get into much further detail later,
+It's really hard to integrate Git into your regular office environment
+Offices tend to be very centralized
 Your shared drive is probably already a disaster - imagine if everyone in your department had their own copy!
-People tend to not need the entire shared drive in order to update 1 document, either
-The way software is written these days, in contrast,
-everything is too interdependent to not have it all at once
+In contrast to code, too, people usually don't need the whole shared drive to update a single document
+And, in offices, generally you just need to know what the most up-to-date version of a document is
+And not how it got that way
 
 The nature of source code is important here too
 Writing code is maybe a bit like a PDF?
 With a PDF, you make your changes in Word or Google Docs and you export a PDF. If you messed up, you gotta re-export.
 Writing software works roughly the same way: you make changes in a text editor and render a result.
 The code isn't the end product, the code creates the end product
-Typical end products include: a website, a transcoded video file, an optimized ad experience, etc.
+To rephrase that: the text of the code is really only as important as its effect on the output
 
 That's just not how office documents work
 you write something you send it on, you have a meeting about it later
+the text on the page is the output
+
 If you have persistent documents, you may have milestone versions of them (corrected, finalized, raw, etc)
 And I'll show you a way to integrate those into a local<->remote setup later
 But really with office documents, at some point they're done
 At some point you can apply "final" to your document
 Code is never really done and if you add a suffix like that to the filename it often breaks things
 
-Anyway these are reasons not to use Git on your office documents
+Anyway, the good folks at NYPL will be giving a presentation later this year
+On using Git for managing documentation
+So stay tuned for that.
+
+Again, I'll show some examples of a local to remote setup that is sort of git-like later in this presentation
 
 So, to wrap up this intro,
 Git provides a framework and methods for handling versioning for software and related documentation
@@ -67,7 +78,6 @@ It does so by tracking the changes to content
 You tell Git to track a file and it records all the changes to the content in it
 It does not save different updates to files as their own documents (like what you see in Google Docs).
 Files have a history but the content inside them does not
-Git actually barely knows that files exist
 each unique batch of content, i.e. the changes, is tracked on its own
 
 You may have looked at a commit on GitHub and wondered,
@@ -75,10 +85,9 @@ You may have looked at a commit on GitHub and wondered,
 Those 7 lines are the changes.
 
 We can demonstrate with an example workflow:
-Here's a very simple website
-if I want to align this text to the middle of the page
-I open a text editor, make that change, save, upload to my "server"
-and now it's different
+You want to change the image layout on your portfolio website
+You open a text editor, adjust the layout to how you want it, save the file, and upload to a server
+and now the image layout is how you want it, on the open web
 
 That "Saves the changes and uploads" bit is the thing that Git and GitHub manages.
 
@@ -86,6 +95,7 @@ Git does not auto-rename your updated file with like "v3.js"
 It actually hashes the filedata in a database, and that's how it knows if a file has changed
 
 So, those are the basics of how Git handles version control.
+It's enough to know that it tracks the changes
 We'll be getting into so much more detail in a moment
 
 
@@ -99,9 +109,9 @@ You can build one yourself or use an alternative hosting site like GitBucket or 
 The reasons people use GitHub are because it's free, most people who code have some notion of how it works,
 and it's really, really easy to share code with GitHub.
 
-It's like Dropbox but streamlined for Git/ software development
+It's like if everyone's Dropbox was public and streamlined for Git/ software development
 
-Git is maintained on GitHub but the two are otherwise unaffiliated.
+Git isn't maintained on GitHub, they have their own remote server
 
 I mentioned earlier that GitHub is free and you might be wondering how they afford the server space
 First, the filesize limit on GitHub is 100MB. Code is small.
@@ -119,8 +129,12 @@ and Gist, where you upload snippets of code (i.e. "the gist of it")
 There's something called GitLab which isn't related to either of these entities
 but does largely the same stuff
 
+And there's a dizzying array of integrations
+Everything from Slack to your text editor to your terminal window
+As a beginner, you don't need to worry too much about this
+
 So that's the basics of the Git ecosystem
-GitHub hosts projects that use Git
+It's enough to know that GitHub hosts projects that use Git
 
 
 
@@ -142,10 +156,12 @@ You might be wondering about the name Git
 Like Linux, Linus named Git after himself
 (for the Americans here, a "git" is like a jerk)
 
-GitHub has contracts with Immigration and Customs Enforcement
+GitHub has its own sordid thing going
+Namely, it sells its enterprise system to Immigration and Customs Enforcement
 (for the not-Americans here, ICE are like the worst people alive)
+So, ICE could fork your repo and use your code if they wanted to
 
-It's owned by Microsoft, who have a well-documented history of egregious behavior
+GitHub is owned by Microsoft, who have a well-documented history of egregious behavior
 In addition to Microsoft's own AI work for ICE
 
 Employees are leaving both companies in protest
@@ -160,7 +176,7 @@ That context today is ecological collapse and a friendlier face of American empi
 
 There are alternatives to both Git and GitHub - we won't really be discussing them here
 I continue use both of these software services, and the text editor Atom, also owned by GitHub/ Microsoft
-And I run Manjaro/ Arch Linux on my personal computer
+And I run Linux on my personal computer
 That's maybe a more important statement than anything that's about to follow
 
 I do want to put it out there, though,
@@ -170,12 +186,12 @@ We're all compelled to work under capitalism, after all
 
 And, capitalism needs abuse and exploitation in order to even exist, in the first place
 
-The actions of Torvalds and Microsoft and ICE are symptomatic of the conditions that enabled them
-If it bugs you, find a way to fight those conditions that connects with you
-I got the tenants union stuff
+So, the actions of Torvalds and Microsoft and ICE are symptomatic of the conditions that enabled them
+Rather than a personal boycott I've been trying to find ways to directly address those conditions
+Stuff that connects with me, like the tenants union
 maybe you're into community kitchens or cyberbullying the mayor or just donating to whomever needs it
 In my opinion,
-those kind of things are much more impactful than using/ not using a particular software service
+those kind of things are much more impactful than using or not using a particular software service
 But maybe not using tools with that kind of history is that important to you
 
 Anyway, that's my bit on the ethics of this software ecosystem

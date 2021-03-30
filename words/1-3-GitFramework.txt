@@ -11,7 +11,8 @@ Git framework
 5:00
 
 Ok, so we know now that Git and GitHub are optimized for code,
-We know that Git only tracks the changes to files, not different versions of whole files like you might rename v1.docx, v2.docx, etc.
+We know that Git only tracks the changes to files,
+not different versions of whole files like you might rename v1.docx, v2.docx, etc.
 We know that other people can get a look at your code on GitHub and download it there and suggest changes
 Let's get a little more in depth with each of these ideas
 
@@ -50,7 +51,8 @@ Branches help distinguish between coders, or between coding tasks
 You might have a branch "New Feature" or "Brendan's updates"
 Every repo has a branch named "main" -
 the default used to be named "master" and they changed it last summer
-and I know we're all glad they prioritized that above ending their ICE contracts, we can tell they're Very Serious about this stuff
+and I know we're all glad they prioritized that above ending their ICE contracts,
+we can tell they're Very Serious about this stuff
 
 Anyway, you can make changes to one branch and they don't affect the other branches
 So any updates I make to Brendan's Fantastic Branch are separate from the code on main
@@ -83,7 +85,8 @@ Remote is where others go to use or modify code that you wrote.
 Remote protects against corruption to your local hard drive.
 
 So, you make your changes locally, you test that they work, you send them to your remote repo
-People with access to your remote repo can then change the code you wrote and send it back to you and you can integrate their changes
+People with access to your remote repo can then change the code you wrote
+and send it back to you and you can integrate their changes
 You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes with emojis, etc.
 
 I'm going to pause for questions now because this is where it starts to get really complicated
@@ -111,7 +114,8 @@ There are three objects in the database that we need to concern ourselves with: 
 
 Blobs are the file data, but not the files themselves
 Blobs contain the sha1 hash of a file's content, not the filename
-Blobs contain only the headers and data chunk(s) of files, not their info from the OS's file allocation table (or whatever)
+Blobs contain only the headers and data chunk(s) of files,
+not their info from the OS's file allocation table (or whatever)
 
 Git is content-addressable, which means that
 each file is not necessarily it's own thing in Git, but each package of unique data is
@@ -125,7 +129,7 @@ Git knows it's not a "new" file, it has the same content as the old one
 That change is registered in something called a tree object
 The tree is how Git moves between its object database and the filesystem on your machine
 Tree objects are lists
-and they're composed of tuples containing a filename, a file type, and a hash
+and they're composed of tuples containing a filename, a type, and a hash
 Trees are where you branch info lives
 Trees refer back to blob objects via the hash
 
@@ -151,11 +155,13 @@ git add
 this tells Git to search the repo and add any content changes to its objects database
 
 git commit
-this tells git to bundle all the file content changes, all the filename and folder structure data, and various timestamps and admin info (like your acct)
+this tells git to bundle all the file content changes,
+all the filename and folder structure data, and various timestamps and admin info (like your acct),
 And package them into an update
 
 git push
-send all of the changes/ commits you made locally to the remote repository, so others can have the most up-to-date version of your code
+send all of the changes/ commits you made locally to the remote repository,
+so others can have the most up-to-date version of your code
 
 git fetch
 retrieve the changes in remote and stage them on local
@@ -179,7 +185,7 @@ This diagram says it better than I ever could
 Versioning
 5:00
 
-You might have made code that looks like index.html and index.html.bak - where you have an old version in case you mess something up
+You might have renamed a file where you have an old version in case you mess something up
 As mentioned, Git doesn't save things like this
 
 There are v1, v2, vN for the entire repository though
@@ -239,35 +245,38 @@ but, it's the best we have right now
 
 If you have all of those elements in place, you can do something GitHub-like
 it's really more like SubVersion, which is a more centralized model
-because offices tend to be very centralized
+because, again, offices tend to be very centralized
 a true Git model would mean everyone has their own copy of the shared drive
 which is the stuff of nightmares
 
 In my department, the document in an Airtable attachment field is the best version
 Those documents are mirrored on our shared drive, which has every version
-Transcripts are the best example here
-We may only have a raw transcript for an interview, if it hasn't been audit-edited yet
-It doesn't matter how far along in the workflow it is, though
-if we need to find clips from that interview, it'll do
+Transcripts are the best example here, you can see we can have lots of versions
+If the interview was done in another language this gets so much more complicated
+It doesn't matter where in the workflow it is, though
+if we need the transcript for that interview, it'll do
 as long as we know it's the best we have
 
 So, these Airtable attachment fields are like remote main
 And everyone has their own versions and structure on their local machines
 Like their own branches or repos
 
-Something that Git solved rather uniquely was ensuring that everyone has access to the most up-to-date version of the code
+Something that Git solved rather uniquely was
+ensuring that everyone has access to the most up-to-date version of the code
 No one wants to work on an out-of-date version of a document
 My suggestion is to make a centralized, single point of reference for the best version of a document
+That gets overwritten with each update
 And lean into the mess of old versions on the shared drive
 
 So, an agreement between people, the labor of maintaining and updating that field in a database,
 and the documentation that supports it, that makes the system work
 It doesn't have to be technical
-The reason Git is so powerful isn't just because it's well thought out, as a system,
+The reason Git and GitHub are so powerful isn't just because they're well thought out, as a system,
 but also because everyone has kind of agreed to use it
 
 That kind of consensus is achievable in small teams without using Git, though
 And, if you set up a remote space where 1 single "best, right now" version of a document lives,
 you can do something Git/ GitHub like
 And, by simplifying the process of deciding "which document version do I need?"
-you can more easily leverage the advantages of a distributed team setup
+you can more easily leverage the advantages of a setup where
+you're not all in the office together
