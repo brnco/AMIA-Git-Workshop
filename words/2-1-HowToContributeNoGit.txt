@@ -1,1 +1,93 @@
- 
+2-1 How to Contribute to a Project without Using Git at all
+
+Ok, so, you have learned a lot about Git and you're feeling a little apprehensive about using it
+In a team project with your colleagues
+
+That's ok!
+You don't need to know a merge from a rebase in order to contribute to open source projects
+
+You will need to use GitHub, though.
+
+This How To will walk you through some methods to contribute without using Git at all
+
+For this, I'm roughly following Ashley Blewer's Guide from a while back (thanks Ashley!)
+Available at this link:
+https://training.ashleyblewer.com/presentations/git-on-github.html#2
+
+with some input from this wonderful guide
+https://opensource.guide/how-to-contribute/
+
+
+
+0. Look first!
+Before doing anything, look at the README, look at the CoC,
+See if they have a guide for contributing to the project
+Look at the issues and pull requests
+Find out if they want your input! Find out what they expect to see in your comments
+Duplicates are pretty easy to resolve but it's still work and it adds up
+
+
+
+1. File an issue
+If something isn't working, tell them!
+
+Go to the repository, click on Issues, write up a description of your problem
+Someone should get back to you at some point
+
+
+
+2. Edit text directly on GitHub
+One of the biggest sore-spots for open source is documentation
+This little demo will show you how you can contribute to the baseline documentation of every repo:
+the README
+
+README.md is just a text document that explains the most important parts of a repo
+They can be really in depth, as this one is
+Or, more usually, they're aimed at people who kinda know what they're doing already
+
+Let's edit a README
+
+Go to the repo that you'd like to contribute to
+We don't have permission to edit directly
+So, we're going to fork this repo
+That means that we get a full copy of this code base
+And we'll make our changes there and submit them to the real repo later
+
+So we click here to our version of the repo
+We click the pencil tool and edit our README
+we will commit our changes to a new branch
+
+
+
+3. File a pull request
+Ok, so we're gonna ask the real repo if they want to integrate our changes
+Go to the real repo's main page
+Click file pull request
+Our source is our fork, so we need to compare across forks
+you can see how many different people have contributed to this over the years, pretty cool
+you're the head, here, your branch is a-head of the main
+You're requesting that this branch be pulled into main
+write out why this change was necessary and any info that might be helpful
+
+Commit!
+
+Your proposed changes will be discussed by the maintainers
+If further edits are necessary, they'll let ya know
+
+
+
+4. Formatting and etiquette
+Committing directly to main is something I do all the time on projects where I'm teh sole developer
+It's considered somewhat rude to commit directly to main on a shared project
+Even if you have the admin privileges to do so
+We're working as a team here, let's act like it!
+
+README.md stands for "markdown" which is like "markup" but not as complicated
+To get fancy formatting, refer to this guide
+https://guides.github.com/features/mastering-markdown/
+
+It takes a while to get used to
+
+
+So, those are some ways that you can be incredibly helpful
+without necessarily knowing much about Git or code

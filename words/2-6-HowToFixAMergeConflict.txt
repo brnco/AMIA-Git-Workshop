@@ -2,7 +2,7 @@
 
 Folks,
 Conflict is inevitable
-It doesn't even happen in spite of anything
+Conflict is so inevitable that it mostly doesn't even happen "in spite of" anything
 Conflict isn't a failure of management or personal styles
 Conflict just is
 
@@ -17,8 +17,8 @@ are too dissimilar to resolve automatically
 It requires a human touch to fix it
 
 This can happen for lots of reasons
-It's more common when pulling changes from another repo than when working with your own stuff
-But sometimes you change files in separate branches or on separate machines
+Mostly it happens when two people edit the same line of code
+Or when a line of code or file is deleted
 and when you try to update everything, those changes need extra love to get resolved
 
 Let's make a merge conflict and fix it!
@@ -26,9 +26,7 @@ Let's make a merge conflict and fix it!
 This tutorial follows the official GitHub documentation for this process, which is available here
 https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts
 
-additionally, I'm using a flavor of Arch Linux
-so the exact commands may or may not be suitable for your Windows or Mac environment
-but the docs linked above have you covered
+
 
 1. Let's make a merge conflict
 Here's our README.md on local
@@ -43,14 +41,38 @@ Now, let's pull the changes from remote to local
 Automatic merge failed; fix conflicts and then commit the result
 
 
-2. new easy way to fix a local merge conflict
 
-git mergetool
+2. Let's fix a merge conflict
+Ok, so we can open this up in our favorite text editor
+we see these less than signs and equal sisngs and greater-than signs
 
-Git made this command that links together a few toher bits of open-source software
-and it looks like this after you configure it
+This section is our most-recent change
+This section, below the equals signs, is what's on remote main, currently
 
-the top-left is the local file on the current branch
-the top-middle is the base, the common ancestor
-the file on the right is the file you are merging into your branch
-the bottom is the result
+All you gotta do is
+Make this file look how you actually want it to look
+
+Make your changes, add, commit, it'll ask for a message resolving the merge conflict
+and you're done.
+
+
+
+3. Beyond merge conflicts
+These can get really, really complicated
+I had a friend tell me that once they had to
+integrate changes commit by commit for 6 weeks worth of work
+They ended up having to rebase, which is like merging but
+Rebasing is like overwriting your main branch with another branch
+
+So that's one alternative to merging that you may run across
+And there's also force merging, which basically tells git
+I don't care what's on remote, what I have on local is correct
+
+In coding teams, there are policies in place for merging, rebasing, etc.
+And I want to stress again here at the end of this workshop
+that what makes the system work, really
+Is the infrastructure around it
+The policies for branching and merging, recognizing the labor that goes into managing that
+The policies for contributing - the codes of conduct and good communication styles
+Developers were doing all of this before Git and GitHub,
+these tools make it easier and more transparent and more consistent
