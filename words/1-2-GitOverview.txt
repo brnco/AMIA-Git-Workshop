@@ -23,12 +23,13 @@ The first one was probably something IBM did in 1962
 The big thing that Git did relative to its precursors was
 to allow each individual coder to have the full version of the code on their own machine
 Rather than everyone making changes directly to the main code base
-Coders copy the code base and make their changes locally
+Coders copy the code base and make their changes locally/ on their forks
 Those changes are later integrated into the main base
 
 I'm going to repeat that because it's super important
 with the Git ecosystem, everyone working on a project has their own version of that project
 It's entirely separate from the main version, although the two are linked
+There's no 1 canonical version of anything, within Git
 Coders make their changes to their version of the code
 Then those changes are merged with the main code base
 
@@ -62,6 +63,7 @@ Code is never really done and if you add a suffix like that to the filename it o
 
 Anyway, the good folks at NYPL will be giving a presentation later this year
 On using Git for managing documentation
+If they're up to it maybe we can ask a bit about that here today
 So stay tuned for that.
 
 Again, I'll show some examples of a local to remote setup that is sort of git-like later in this presentation
@@ -74,15 +76,22 @@ Git provides a framework and methods for handling versioning for software and re
 2. How does Git do version control?
 1:00
 
-It does so by tracking the changes to content
-You tell Git to track a file and it records all the changes to the content in it
-It does not save different updates to files as their own documents (like what you see in Google Docs).
-Files have a history but the content inside them does not
-each unique batch of content, i.e. the changes, is tracked on its own
+It does so by tracking the changes to content separately from changes to structure
 
-You may have looked at a commit on GitHub and wondered,
-"there's 45 different scripts in this repo but this commit is showing me 7 lines of code"
-Those 7 lines are the changes.
+each unique set of content and structure, i.e. the changes, is tracked on its own
+
+Git creates a database that manages all your files and their contents
+And uses that database to construct a complete repository with every commit
+Each update has a snapshot of the entire repository
+
+Imagine if, in Google Docs, you rewound to a previous version of a document
+And had the option to rewind all the documents in that same Google Drive folder
+To that same timestamp. Or, rewind your entire Google Drive
+Now imagine that you could choose to rewind some documents and not others
+Or, just some content in some documents
+
+That's the granularity that Git provides
+If this is confusing just let it wash over you for a bit, we'll get back to this in-depth later
 
 We can demonstrate with an example workflow:
 You want to change the image layout on your portfolio website
@@ -90,12 +99,15 @@ You open a text editor, adjust the layout to how you want it, save the file, and
 and now the image layout is how you want it, on the open web
 
 That "Saves the changes and uploads" bit is the thing that Git and GitHub manages.
+If you wanted to put your images back how they were
+It's 1 terminal command, and you could back and forth all you want to
 
 Git does not auto-rename your updated file with like "v3.js"
-It actually hashes the filedata in a database, and that's how it knows if a file has changed
+It actually hashes the filedata and folder structure in a database,
+and that's how it knows if a file has changed
 
 So, those are the basics of how Git handles version control.
-It's enough to know that it tracks the changes
+It's enough, right now, to know that Git tracks changes to content and structure separately
 We'll be getting into so much more detail in a moment
 
 
@@ -109,7 +121,7 @@ You can build one yourself or use an alternative hosting site like GitBucket or 
 The reasons people use GitHub are because it's free, most people who code have some notion of how it works,
 and it's really, really easy to share code with GitHub.
 
-It's like if everyone's Dropbox was public and streamlined for Git/ software development
+GitHub like if everyone's Dropbox was public and streamlined for Git/ software development
 
 Git isn't maintained on GitHub, they have their own remote server
 
@@ -131,7 +143,7 @@ but does largely the same stuff
 
 And there's a dizzying array of integrations
 Everything from Slack to your text editor to your terminal window
-As a beginner, you don't need to worry too much about this
+As a beginner, though, you don't need to worry too much about this
 
 So that's the basics of the Git ecosystem
 It's enough to know that GitHub hosts projects that use Git
@@ -152,7 +164,6 @@ by the same guy who wrote Linux kernel and headed that project for 27 years, Lin
 He stepped down from the Linux project in 2018
 in the face of increasing pressure to stop verbally abusing people in emails, forum posts, commit messages, etc.
 
-You might be wondering about the name Git
 Like Linux, Linus named Git after himself
 (for the Americans here, a "git" is like a jerk)
 
@@ -175,7 +186,8 @@ We need to keep in mind that our work isn't just us, but occurs in a context
 That context today is ecological collapse and a friendlier face of American empire
 
 There are alternatives to both Git and GitHub - we won't really be discussing them here
-I continue use both of these software services, and the text editor Atom, also owned by GitHub/ Microsoft
+I continue use both of these software services,
+and the text editor Atom, also owned by GitHub/ Microsoft
 And I run Linux on my personal computer
 That's maybe a more important statement than anything that's about to follow
 
@@ -185,9 +197,11 @@ Your work is not something you have a lot of control over, in the scheme of thin
 We're all compelled to work under capitalism, after all
 
 And, capitalism needs abuse and exploitation in order to even exist, in the first place
+The open source community is not and has never been free of this dynamic
 
 So, the actions of Torvalds and Microsoft and ICE are symptomatic of the conditions that enabled them
-Rather than a personal boycott I've been trying to find ways to directly address those conditions
+Rather than a personal boycott of these services
+I've been trying to find ways to directly address those conditions that enable them
 Stuff that connects with me, like the tenants union
 maybe you're into community kitchens or cyberbullying the mayor or just donating to whomever needs it
 In my opinion,

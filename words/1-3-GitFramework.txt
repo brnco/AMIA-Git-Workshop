@@ -11,8 +11,8 @@ Git framework
 5:00
 
 Ok, so we know now that Git and GitHub are optimized for code,
-We know that Git only tracks the changes to files,
-not different versions of whole files like you might rename v1.docx, v2.docx, etc.
+We know that Git only tracks the changes to file content and structure separately
+It doesn't rename anything v1.docx, v2.docx, etc.
 We know that other people can get a look at your code on GitHub and download it there and suggest changes
 Let's get a little more in depth with each of these ideas
 
@@ -26,8 +26,8 @@ You don't need a remote repo to run Git.
 You don't need a local repo to use GitHub.
 
 Commit
-A commit is a set of changes to one or more files.
-commits are how you assemble all the changes you've made to your work.
+A commit is a snapshot of the entire repository
+commits are how you assemble all the changes you've made to your work
 You can restore old commits.
 You can apply one commit at a time or lots of them at once.
 You can comment on commits.
@@ -46,7 +46,7 @@ Ok let's get into some workflows
 
 Branches
 Here's a very important diagram about Git (branch diagram)
-When you're doing your work, writing code, making updates, you're working on a "branch" of your codebase
+When you're doing your work, writing code, making updates, you're generally working on a "branch" of your codebase
 Branches help distinguish between coders, or between coding tasks
 You might have a branch "New Feature" or "Brendan's updates"
 Every repo has a branch named "main" -
@@ -66,7 +66,7 @@ To bring those changes back from Branch B to Branch A, we call that a "merge"
 
 You can have lots and lots of different branches, they all refer back to the point where they were checked out from main
 And, when you merge them back into main, the changes are automatically integrated into the code, if possible
-So, two people can make updates to the same file and,
+So, two people can make updates to the same repository and,
 as long as those changes don't conflict with each other,
 they're automatically integrated
 
@@ -78,7 +78,6 @@ They are linked but they are not the same.
 
 The remote repo is where the best code is
 The most up to date, most usable and refined code, everyone knows it's there in remote main.
-That's like, what it means to use Git and GitHub - there's a remote main where the best work ends up
 There's a code of conduct in the remote repo that everyone abides by.
 There's a license in the remote repo that people can refer back to when deploying your code for themselves.
 Remote is where others go to use or modify code that you wrote.
@@ -90,7 +89,7 @@ and send it back to you and you can integrate their changes
 You can undo the changes, you can create a hyperlink to the changes, you can comment on the changes with emojis, etc.
 
 I'm going to pause for questions now because this is where it starts to get really complicated
-But, after this next section, we'll do the tutorials and maybe some things will become more clear, too
+But, after this next section, we'll do some tutorials and maybe some things will become more clear, too
 
 So, if your head is swirling with verbiage, let's discuss it
 
@@ -117,6 +116,8 @@ Blobs contain the sha1 hash of a file's content, not the filename
 Blobs contain only the headers and data chunk(s) of files,
 not their info from the OS's file allocation table (or whatever)
 
+Blob actually stands for "binary large object" - great descriptor!
+
 Git is content-addressable, which means that
 each file is not necessarily it's own thing in Git, but each package of unique data is
 Your filesystem on your personal computer is location-addressable
@@ -137,7 +138,8 @@ So, each bit of file content is hashed
 and those hashes, not the filenames, are the main reference Git uses to track your project
 
 The trees are then organized into commits
-A commit, again, is a set of changes to file content or repo structure
+A commit, again, is a snapshot of the entire repo
+It's actually a snapshot of the tree at a particular point in time/ workflow
 A commit also contains a message describing what those changes are, written by you, the user
 
 So, the filename, file content, and integration of content changes
@@ -148,6 +150,8 @@ If you don't commit your changes, your repo doesn't get updated, even though you
 Because there is redundancy on the content-level and the file/folder level,
 and those changes are rolled into a single object called a "commit"
 The system is very robust. It's very, very difficult to change something and have it unintentionally missed by Git
+additionally, because the keys in this database are cryptographic hashes
+It's very easy to locate content across different versions of the repository
 
 The way this is all managed on the user end is through the following commands
 
@@ -182,6 +186,7 @@ switch to the new branch
 This diagram says it better than I ever could
 
 
+
 Versioning
 5:00
 
@@ -195,6 +200,7 @@ That's the release number
 the release info refers to your entire repo, not an individual file
 There's really no "version" of a file in Git, just its latest commit
 I'm gonna keep repeating this kind of thing for the whole workshop so it sinks in
+
 
 
 2. Modeling Git for non-code documents

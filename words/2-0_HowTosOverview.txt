@@ -11,7 +11,7 @@ It's not so bad
 
 There are Git GUI's available for every platform
 Dozens of them, it seems
-If anyone has recommendations for Git GUI's, please put them int he chat
+If anyone has recommendations for Git GUI's, please put them in the chat
 Maybe we can get back to that at the end of the presentation
 
 Next, I'm using a flavor of Arch Linux called Manjaro
@@ -25,7 +25,19 @@ On Windows, well, the git commands are the same at least
 Each tutorial will link to the GitHub documentation for the relevant topic
 And those docs have you covered
 
-Lastly, there's no shame in looking up every little thing!
-Stack Overflow wrote most of this presentation, when you get down to it
-When you forget stuff, just look it up, don't get down on yourself about it
-It's confusing because it's new and because it's complicated, so
+I made 6 tutorials but I think we only have time for 2-3 today
+I want to be sure we have plenty of time for questions
+But, all 6 tutorials are live now, and you can watch them whenever
+Bookmark this presentation and come back
+There's also no shortage of help on YouTube and Stack Overflow
+so, I just wanted to maximize our discussion time
+
+This first video is about contributing to open source without using Git
+And I left off 1 very important mechanism for doing that: DONATE
+It takes a lot of labor to do open source projects
+They form the backbone of so much, we wouldn't have the web without them
+If you or your organization use a project a lot
+Consider giving back to it, with money
+That's 1 easy way to support open source and it's not very technical
+
+Ok on to the show
