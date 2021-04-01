@@ -31,7 +31,7 @@ it also means that changes to this file aren't tracked!
 but, you manage this file manually, so that's ok usually
 
 As always, I'm following the official GitHub documentation for this, available here:
-https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+https://docs.github.com/en/github/getting-started-with-github/ignoring-files
 
 
 

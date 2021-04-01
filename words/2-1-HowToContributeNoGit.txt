@@ -22,6 +22,7 @@ https://opensource.guide/how-to-contribute/
 0. Look first!
 Before doing anything, look at the README, look at the CoC,
 See if they have a guide for contributing to the project
+BAVC has this wonderful Contributor's Guide
 Look at the issues and pull requests
 Find out if they want your input! Find out what they expect to see in your comments
 Duplicates are pretty easy to resolve but it's still work and it adds up
@@ -29,10 +30,17 @@ Duplicates are pretty easy to resolve but it's still work and it adds up
 
 
 1. File an issue
-If something isn't working, tell them!
+BAVC seems to want everyone to file issues, mostly
+So, that's what we're going to do!
 
+Filing an issue is one of the ways to contribute with the least amount of overhead
+If something isn't working, tell the team who made it!
+
+To do that,
 Go to the repository, click on Issues, write up a description of your problem
 Someone should get back to you at some point
+
+You can see here an example of the kind of discussion everyone does
 
 
 

@@ -50,6 +50,8 @@ you can see I have some already
 which I could link
 but, we're gonna make new ones anyway
 
+Here I am backing up my current setup
+
 
 
 2. make a new ssh key
